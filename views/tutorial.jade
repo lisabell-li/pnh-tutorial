@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/cards.js')
+    title= title
+
+  body
+    block content
+    #wrapper
+      #header
+       
+        nav.navbar.navbar-default.navbar-static-top
+               ul.nav.navbar-nav
+                li.active
+                  a(href='/tutorial') Home
+                li.non-active
+                  a(href='/tutorial/cards') Vocabulary: Flashcards
+                li.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                li.non-active
+                  a(href='/tutorial/lettercreation') Letter Creator 
+        
+        br
+        br     
+        h1= title
+        p German-English Tutorial for the PNH girls
+        br
+        
+        #container
+         #right.column
+          h2.tu Create a letter
+          br        
+          a(href="/tutorial/lettercreation")
+           #box.bg
+            table
+             tr
+              th.delete 
+               br
+               img(src='images/letterPate.png', alt='Letter to sponsor')
+              th 
+               br
+               p Create your own letter   
+          
+         #left.column
+          h2.tu Learn Vocabulary
+          br 
+          a(href="/tutorial/cards")
+           #box
+            br
+            br
+            p Test yourself
+          br
+          a(href="/tutorial/spellingvoc")
+           #box
+            br
+            br
+            p Learn Vocabulary with actual writing it
+
+          
+          
+      #footer
+        nav.navbar.navbar-default.navbar-fixed-bottom
+               ul.nav.navbar-nav(style='margin-left: 35%')
+                li.active
+                  a(href='/tutorial') Home
+                li.non-active
+                  a(href='/tutorial/cards') Vocabulary: Flashcards
+                li.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                li.non-active
+                  a(href='/tutorial/lettercreation') Letter Creator           
+             

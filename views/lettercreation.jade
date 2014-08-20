@@ -1,0 +1,65 @@
+doctype html
+html
+  head
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    link(rel='stylesheet', href='/stylesheets/styleLetter.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/tuts.js')
+    title= title
+  body
+
+    block content
+ 
+    #wrapper
+      #header
+        //Nav-Bar
+        nav.navbar.navbar-default.navbar-static-top
+               ul.nav.navbar-nav
+                li.non-active
+                  a(href='/tutorial') Home
+                li.non-active
+                  a(href='/tutorial/cards') Vocabulary: Flashcards
+                li.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                li.active
+                  a(href='/tutorial/lettercreation') Letter Creator
+        //-Nav-Bar 
+        br
+        br     
+        h1= title
+        p German-English Tutorial for the PNH girls
+        br
+        
+        #middle.column  
+            //English German Voc Table
+            h3(style='color: white;')    &nbsp;Add Sentences              
+            #vocTable
+                table.table.table-bordered              
+                         tr
+                           th English    -   German
+                              
+                         tr#greetz
+                           th#greet                            
+                         tr#feeltz
+                           th#fee1
+            //-English German Voc Table
+                                                                                         
+
+        #left.column
+            //LetterList
+            h3(style='color: white;')    &nbsp;Your Letter
+            #letter.letter
+                table.table.lt
+                    thead
+                        th
+                    tbody
+                #deleteall  Delete all? 
+                #copyall                
+            //-Letter List
+                    
+            
+           
+
+        

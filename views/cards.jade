@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/cards.js')
+    title= title
+  body
+  
+    block content
+     
+    #wrapper
+      #header
+        nav.navbar.navbar-default.navbar-static-top
+               ul.nav.navbar-nav
+                li.non-active
+                  a(href='/tutorial') Home
+                li.active
+                  a(href='/tutorial/cards') Vocabulary: Flashcards
+                li.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                li.non-active
+                  a(href='/tutorial/lettercreation') Letter Creator 
+        br
+        br     
+        h1= title
+        p German-English Tutorial for the PNH girls
+        br
+      #body  
+        br
+        br
+        br
+        table.table.table-striped.wid
+            thead
+                th
+                th#flipbox
+                th       
+            tbody
+               
+        .btn.btn-success.btn-large#nextButton
+           | next
+           i.icon-white.icon-arrow-right            
+                    
+            
+            
+     
+            
+ 
