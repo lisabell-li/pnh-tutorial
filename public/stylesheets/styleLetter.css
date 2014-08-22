@@ -73,6 +73,13 @@ td.delete{
   text-align: left;
 }
 
+td.voc{
+  width: 300px;
+  border-top: 0;
+  font-color:#FFFFFF;
+  text-align: left;
+}
+
 #header {
   background-color:#0099CC;
 }

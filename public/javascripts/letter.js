@@ -76,9 +76,9 @@ function fillTable() {
         // For each item in our getJSON a row is added and cells to tableText
         $.each(item, function(){
         	tableText += '<tr>';
-        	tableText += '<td>' + this.english+ '</td>';
-        	tableText += '<td>' + this.german + '</td>';
-        	tableText += '<td><a href="#" class="addToLetter" rel="' + this.german + '">Add</a></td>';
+        	tableText += '<td class="voc">' + this.english+ '</td>';
+        	tableText += '<td class="voc">' + this.german + '</td>';
+        	tableText += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.german + '">Add</a></td>';
         	tableText += '</tr>';
        
         	
@@ -98,11 +98,11 @@ $.getJSON( '/tutorial/lettercreation/vocFeeling ', function( item ) {
     $.each(item, function(){
     	
     	tableText2 += '<tr>';
-    	tableText2 += '<td>' + this.english+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow"><u>' +this.VEOne+'</u></FONT>'+'</td>';
-    	tableText2 += '<td>' +'&nbsp' +'&nbsp' +'&nbsp' + this.german + '<FONT style="BACKGROUND-COLOR: yellow"><u>'+ this.VGOne +'</u></FONT>'+ this.point + '</td>';
-    	tableText2 += '<td><a href="#" class="linkChangeFeelPrev" rel="' + this.english + '" title="Prev">Prev</a></td>';
-    	tableText2 += '<td><a href="#" class="linkChangeFeelNext" rel="' + this.english + '" title="Next">Next</a></td>';
-    	tableText2 += '<td><a href="#" class="addToLetter" rel="' + this.german + this.VGOne + this.point + '">Add</a></td>';
+    	tableText2 += '<td class="voc">' + this.english+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow"><u>' +this.VEOne+'</u></FONT>'+'</td>';
+    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.german + '<FONT style="BACKGROUND-COLOR: yellow"><u>'+ this.VGOne +'</u></FONT>'+ this.point + '</td>';
+    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + this.english + '" title="Prev">Prev</a></td>';
+    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + this.english + '" title="Next">Next</a></td>';
+    	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.german + this.VGOne + this.point + '">Add</a></td>';
     	tableText2 += '</tr>';
 
     });
@@ -148,11 +148,11 @@ function changeFeelNext() {
        break;
 }
 
-  varFeeli += '<td>' + thisUserObject.english+ '&nbsp' +'<u>'+varEnglish+ '</u>'+ '</td>';
-  varFeeli += '<td>' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<u>'+ varGerman+ '</u>'+ thisUserObject.point + '</td>';
-  varFeeli += '<td><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
-  varFeeli += '<td><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
-  varFeeli += '<td><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
+  varFeeli += '<td class="voc">' + thisUserObject.english+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow">' +'<u>'+varEnglish+ '</u>'+ '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>'+ thisUserObject.point + '</td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
 
     //change the html of the relating row
     $(this).parent().parent().html(varFeeli);
@@ -198,11 +198,11 @@ function changeFeelPrev() {
        break;
 }
   
-  varFeeli += '<td>' + thisUserObject.english+ '&nbsp' +'<u>'+varEnglish+'</u>'+ '</td>';
-  varFeeli += '<td>' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<u>'+ varGerman+'</u>' + thisUserObject.point + '</td>';
-  varFeeli += '<td><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
-  varFeeli += '<td><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
-  varFeeli += '<td><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
+  varFeeli += '<td class="voc">' + thisUserObject.english+ '&nbsp'+'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+varEnglish+'</u>'+ '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+'</u>' + thisUserObject.point + '</td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
 
    //change the html of the relating row 
     $(this).parent().parent().html(varFeeli); 
