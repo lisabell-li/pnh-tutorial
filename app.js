@@ -9,7 +9,10 @@ var bodyParser = require('body-parser');
 //Databases
 var mongo = require('mongoskin');
 //path of database
-var db = mongo.db("mongodb://localhost:27017/pnh", {native_parser:true});
+//var db = mongo.db("mongodb://localhost:27017/pnh", {native_parser:true});
+var mongoUri = process.env.MONGOHQ_URL;
+var mongoUri = process.env.MONGOHQ_URL;
+var db = mongo.db(mongoUri, {w:1});
 
 //routes
 var routes = require('./routes/index');
