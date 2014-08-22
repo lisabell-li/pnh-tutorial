@@ -4,7 +4,7 @@ var router = express.Router();
 //render views
 /* GET Homepage. [to be changed]*/
 router.get('/', function(req, res) {
-  res.render('index', { title: 'PNH', name: 'Orphanage in Nepal'});
+	return res.redirect('/tutorial');
 });
 
 /* GET lettercreation page. */
