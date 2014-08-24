@@ -85,7 +85,7 @@ td.voc{
 }
 
 #bottom{
-margin-left: 35%;
+  margin-left: 35%;
 }
 
 
@@ -97,4 +97,8 @@ ul.nav.navbar-nav > li  {
 li.non-active{
 background-color:white;
 
+}
+
+h4 {
+  text-align: center;
 }

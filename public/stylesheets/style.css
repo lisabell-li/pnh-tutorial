@@ -18,6 +18,7 @@ h1{
 h2.tu{
   text-align: center;
   color: white;
+  text-decoration:underline;
  
 }
 
@@ -25,6 +26,8 @@ p {
   text-align: center;
  
 }
+
+
 
 p.bold {
   text-align: left;
@@ -111,16 +114,17 @@ opacity: 0.4;
   margin-left:25%;
   margin-right:25%;
   margin-top:10px;
-  background-color:white;     
+   
 }
 
 #box.bg{ 
-  height: 180px;     
+  height: 180px;    
 }
 
 a:link {color:#000000;}
 a:visited {color:#000000;}
-a:hover {color:#000000;}
+a.white:hover {color:white;}
+a.white:link { text-align: center; }
 
 th.delete{
   width: 30%;
@@ -142,4 +146,10 @@ ul.nav.navbar-nav > li  {
 
 li.non-active{
 background-color:white;
+}
+
+h4{
+font-color:white;
+font-size: 18px;
+text-align: center;
 }
