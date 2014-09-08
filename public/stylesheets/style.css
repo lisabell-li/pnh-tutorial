@@ -27,6 +27,9 @@ p {
  
 }
 
+.container.left{
+ margin-left: 40%
+}
 
 
 p.bold {
@@ -38,7 +41,7 @@ p.bold {
 }
 
 #flipbox {
-  width: 700px;
+  width: 42%;
   height: 400px;
   line-height: 400px;
   background-color: lightgrey;
@@ -49,9 +52,15 @@ p.bold {
   text-align: center;
 }
 
-  .btn.btn-success.btn-large {
+
+.btn.btn-success.btn-large {
   font-size: 1.5em;
   margin-left: 1050px;
+}
+
+.btn.btn-info.spell{
+  margin-left: 673px;
+  margin-top: 10px;
 }
 
   .btn.btn-success.spell {
@@ -61,8 +70,9 @@ p.bold {
 
 .table.table.table-striped.wid {
   column-width:700px;
-  -moz-column-width:700px; /* Firefox */
-  -webkit-column-width:700px; /* Safari and Chrome */
+  -webkit-column-width:700px;
+  -moz-column-width:700px; 
+
 }
 
 .form.form-horizontal{
@@ -74,9 +84,6 @@ p.bold {
 background-color:#0099CC;
 
 }
-
-
-
 
 .picB{
 background-image: url("../../images/berlin.jpg");
@@ -152,4 +159,38 @@ h4{
 font-color:white;
 font-size: 18px;
 text-align: center;
+}
+
+
+/*with thanks to http://www.cssportal.com/css-tooltip-generator/# */
+a.tooltips {
+  position: relative;
+  display: inline;
+}
+
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #000000;
+  background: #FFFFFF;
+  border: 2px solid #6D6D6D;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+
+
+a:hover.tooltips span {
+  visibility: visible;
+  opacity: 0.8;
+  top: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+}
+
+a.tooltips span:after {
+  visibility: hidden;
 }

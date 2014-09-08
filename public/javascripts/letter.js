@@ -1,36 +1,17 @@
 var varFeel ='';
 var letterDext='';
 var feelingData = [];
-var counter = 0;
+var counter = 1;
 
 
 // DOM 
 $(document).ready(function() {
 	
-	userName = prompt("Please enter your name:", "");
-	var currUser = getCookieName("username");
-    if (currUser == userName) {
-        //alert("Welcome back " + user);
-        start();
-    } else if (userName != "" && userName != null) {
-            setTheCookie("username", userName, 365);
-            setTheCookie("letter", "", 365);
-            start();
-        }
-    else{
-    	history.back();
-    }
-       
-    
-	
-}); 
-
-//FUNCTIONS to be started at page load
-function start(){
 	
     fillTable();
     
     createLetter();
+    
 
     $('#vocTable #feeltz').on('click', 'td a.linkChangeFeelNext', changeFeelNext);
     $('#vocTable #feeltz').on('click', 'td a.linkChangeFeelPrev', changeFeelPrev);
@@ -39,13 +20,14 @@ function start(){
     $('#deleteall').on('click',  deleteAllSentenceFromLetter);
   
 
-}
+}); 
 
+/* with thank to the tutorial http://www.w3schools.com/js/js_cookies.asp */
 
-//FUNCTIONS
-function setTheCookie(cookieName, cookieValue, exDate) {
+//COOKIE FUNCTIONS: A big thanks to the tutorial http://www.w3schools.com/js/js_cookies.asp
+function setTheCookie(cookieName, cookieValue) {
     var date = new Date();
-    date.setTime(date.getTime() + (exDate*24*60*60*1000));
+    date.setTime(date.getTime() + (172800000));//aktuelles Datum + 2Tage
     var expiry = "expires="+date.toGMTString();
     document.cookie = cookieName + "=" + cookieValue + "; " + expiry;
 }
@@ -96,13 +78,15 @@ $.getJSON( '/tutorial/lettercreation/vocFeeling ', function( item ) {
 	feelingData = item;
 	// For each item in our getJSON a row is added and cells to tableText2
     $.each(item, function(){
-    	
+    	var relattr = this.englishSentence+"+"+ 0;
+    	var german =  this.germanWords[0];
+    	var english =  this.englishWords[0];
     	tableText2 += '<tr>';
-    	tableText2 += '<td class="voc">' + this.english+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow"><u>' +this.VEOne+'</u></FONT>'+'</td>';
-    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.german + '<FONT style="BACKGROUND-COLOR: yellow"><u>'+ this.VGOne +'</u></FONT>'+ this.point + '</td>';
-    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + this.english + '" title="Prev">Prev</a></td>';
-    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + this.english + '" title="Next">Next</a></td>';
-    	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.german + this.VGOne + this.point + '">Add</a></td>';
+    	tableText2 += '<td class="voc">' + this.englishSentence+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow"><u>' +english+'</u></FONT>'+'</td>';
+    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<FONT style="BACKGROUND-COLOR: yellow"><u>'+ german+'</u></FONT>'+ "." + '</td>';
+    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Prev">Prev</a></td>';
+    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next">Next</a></td>';
+    	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + german + "." + '">Add</a></td>';
     	tableText2 += '</tr>';
 
     });
@@ -118,41 +102,39 @@ $.getJSON( '/tutorial/lettercreation/vocFeeling ', function( item ) {
 function changeFeelNext() {
 
     //get english word from rel attribute of the link
-    var englishWord = $(this).attr('rel');
-
+    var attrWhole = $(this).attr('rel');
+    var attr = attrWhole.split('+');
+    var englishWord = attr[0];
+    var counti = attr[1]; 
+    var count =1+ parseInt(counti);
     // Get Index of word based on rel attribute
-    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.english; }).indexOf(englishWord);
-
-    // Get the object
-    var thisUserObject = feelingData[arrayPosition];
-    if (counter < thisUserObject.counter-1){ 
-    counter += 1;
-    }
-    var varFeeli ='';
-    var varEnglish ='';
-    var varGerman ='';
+    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.englishSentence; }).indexOf(englishWord);
     
-  //set german and english word
-  switch(counter){
-    case 1:
-    	varGerman = thisUserObject.VGTwo;
-    	varEnglish = thisUserObject.VETwo;
-      break;
-     case 2:
-    	 varGerman = thisUserObject.VGThree;
-    	 varEnglish = thisUserObject.VEThree;
-       break;
-      case 3:
-    	  varGerman = thisUserObject.VGFour;
-    	  varEnglish = thisUserObject.VEFour;
-       break;
-}
+    var currentVoc = feelingData[arrayPosition];
+    // Get the object
+    var varFeeli ='';
+    
+    //set german and english word
+    var laenge = currentVoc.germanWords.length;
+    
+    if(count>laenge-1){
+    	count =laenge-1;
+    	var varGerman = currentVoc.germanWords[laenge-1];
+        var varEnglish = currentVoc.englishWords[laenge-1];
+    }
+    else{
+        var varGerman = currentVoc.germanWords[count];
+        var varEnglish = currentVoc.englishWords[count];	
+    }
+   
+    
 
-  varFeeli += '<td class="voc">' + thisUserObject.english+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow">' +'<u>'+varEnglish+ '</u>'+ '</td>';
-  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>'+ thisUserObject.point + '</td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
+
+  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow">' +'<u>'+varEnglish+ '</u>'+ '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' +"."+ '</td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman  + '">Add</a></td>';
 
     //change the html of the relating row
     $(this).parent().parent().html(varFeeli);
@@ -163,46 +145,39 @@ function changeFeelNext() {
 function changeFeelPrev() {
 
 	//get english word from rel attribute of the link
-    var englishWord = $(this).attr('rel');
+	 var attrWhole = $(this).attr('rel');
+	    var attr = attrWhole.split('+');
+	    var englishWord = attr[0];
+	    var counti = attr[1]; 
+	    var count = parseInt(counti)-1;
+	    // Get Index of word based on rel attribute
+	    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.englishSentence; }).indexOf(englishWord);
+	    
+	    var currentVoc = feelingData[arrayPosition];
+	    // Get the object
+	    var varFeeli ='';
+	    
+	    //set german and english word
+	    var laenge = currentVoc.germanWords.length;
+	    
+	    if(count<0){
+	    	count =0;
+	    	var varGerman = currentVoc.germanWords[0];
+	        var varEnglish = currentVoc.englishWords[0];
+	    }
+	    else{
+	        var varGerman = currentVoc.germanWords[count];
+	        var varEnglish = currentVoc.englishWords[count];	
+	    }
+	   
+	    
 
-    // Get Index of object based on rel attribute
-    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.english; }).indexOf(englishWord);
 
-    // Get the object
-    var thisUserObject = feelingData[arrayPosition];
-    var varEnglish ='';
-    if (counter > 0){ 
-        counter -= 1;
-        }
-    var varFeeli ='';
-    var varEnglish ='';
-    var varGerman ='';
-    
-  //set german and english word
-  switch(counter){
-    case 0:
-    	varGerman = thisUserObject.VGOne;
-	    varEnglish = thisUserObject.VEOne;
-    break;
-    case 1:
-    	varGerman = thisUserObject.VGTwo;
-	    varEnglish = thisUserObject.VETwo;
-      break;
-     case 2:
-    	 varGerman = thisUserObject.VGThree;
- 	   varEnglish = thisUserObject.VEThree;
-       break;
-      case 3:
-    	 varGerman = thisUserObject.VGFour;
-	    varEnglish = thisUserObject.VEFour;
-       break;
-}
-  
-  varFeeli += '<td class="voc">' + thisUserObject.english+ '&nbsp'+'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+varEnglish+'</u>'+ '</td>';
-  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + thisUserObject.german +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+'</u>' + thisUserObject.point + '</td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + thisUserObject.english + '" title="Prev">Prev</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + thisUserObject.english + '" title="Next">Next</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + thisUserObject.german + varGerman + thisUserObject.point + '">Add</a></td>';
+	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '&nbsp'+' <FONT style="BACKGROUND-COLOR: yellow">' +'<u>'+varEnglish+ '</u>'+ '</td>';
+	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' +"."+ '</td>';
+	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman  + '">Add</a></td>';
 
    //change the html of the relating row 
     $(this).parent().parent().html(varFeeli); 
@@ -212,8 +187,7 @@ function changeFeelPrev() {
 
 //Fill letter with sentences (from cookie)
 function createLetter() {
-	
-	var currCookie= getCookieName("letter");
+	var currCookie= getCookieName("letter");//returns cookie or ""
 	var sentences = currCookie.split("+");
     var letterText="";
 	
@@ -249,7 +223,7 @@ function addToLetter() {
 	   var sentencetoAdd= $(this).attr('rel');
 	   var currCookie= getCookieName("letter");
 	   currCookie+=sentencetoAdd+'+';
-	   setTheCookie("letter", currCookie, 365);
+	   setTheCookie("letter", currCookie);
 	   createLetter();
 	  
    
@@ -266,7 +240,7 @@ function deleteSentenceFromLetter() {
     var sentenceToDelete =	$(this).attr('rel')+"+";
     var currCookie= getCookieName("letter");
     var newCookie = currCookie.replace(sentenceToDelete,"");
-    setTheCookie("letter", newCookie, 365);
+    setTheCookie("letter", newCookie);
     createLetter();
     }
     else {
@@ -281,7 +255,7 @@ function deleteAllSentenceFromLetter() {
     var confirmation = confirm('Are you sure you want to delete all sentences from your letter?');
     if (confirmation == true) {    	
         var	currCookie='';
-        setTheCookie("letter", currCookie, 365);
+        setTheCookie("letter", currCookie);
         createLetter();
         }
         else {

@@ -2,15 +2,20 @@ var english = '';
 var german = '';
 var currentVoc= '';
 var vocs = [];
+var vocNum = 0;
 var count = 0; 
+var direction =0;
 // DOM 
 $(document).ready(function() {
 
-	 createText();
+	createTextEnglish();
+
 	 
+	$('#englishRadio').on('click', createTextEnglish);
+    $('#germanRadio').on('click', createTextGerman);
     $('#SubmitVoc').on('click', checkit);
     $('#nextButton').on('click', nextVoc);
-    
+    $('#solveButton').on('click', solve);
    
 
 });
@@ -18,26 +23,47 @@ $(document).ready(function() {
 function nextVoc(){
 	//increase the voc count and get the next voc from the array vocs
 	count += 1;
-	var tableText = vocs[count].english;
+	 if(direction==0){
+		 var tableText = vocs[count].english;
+	   }
+	   else{
+		   var tableText = vocs[count].german;
+	   }
+	
     english= vocs[count].english;
     german = vocs[count].german;
  
 //chenge the voc
 $('#english').text(tableText);
+var elem = document.getElementById("germanTr");
+elem.value = "";
+
+var anzahl = count;
+var prozent = (100/vocNum)*anzahl;
+	
+$("#progressNum").text(anzahl+ " / "+vocNum+" words");
+	 $(".bar").css("width",prozent+ "%");
 	
 	
 }
 
 //check whether the entered voc is correct or not
 function checkit(){
-	var letter=document.getElementById('germanTr').value;
+	var transl;
+   if(direction==0){
+	   transl = german.toLowerCase();
+   }
+   else{
+	   transl = english.toLowerCase();
+   }
+   var letter=document.getElementById('germanTr').value;
    if(letter !== "") {
-	if(letter.toLowerCase()==german.toLowerCase()){
+	if(letter.toLowerCase()==transl){
     	alert("Correct. Congratulations\n\n"+"english: "+ english +"\n\ngerman: "+german+"\n\nNext one?");	
     	nextVoc();
 	}
     else {
-    	alert("I'm sorry. But your answer is wrong");	
+    	alert("I'm sorry. But your answer is wrong"+letter+"+"+transl);	
     	
     }
 	
@@ -52,14 +78,59 @@ function checkit(){
 	elem.value = "";
 }
 
-//Fill table with data
-function createText() {
-
-   
-
+//Fill table with data german-> english
+function createTextGerman() {
+	var elem = document.getElementById("germanTr");
+	elem.value = "";
+	
+    direction = 1;
+    count = 0; 
     // AJAX jQuery Call to JSON
     $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
+     vocs=item;
+     vocNum = vocs.length;
+     var anzahl = count;
+  	 var prozent = (100/vocNum)*anzahl;
+  	
+     $("#progressNum").text(anzahl+ " / "+vocNum+" words");
+  	 $(".bar").css("width",prozent+ "%");
+        // For each item in our getJSON a row is added and cells to tableText
+       
+        	var tableText = item[0].german;
+            english= item[0].english;
+            german = item[0].german;
+            currentVoc=1;
+      
+
+        // The entire content, created with the data from db is added to HTML-table
+        $('#english').text(tableText);
+        
+    });
+    
+
+
+
+};
+
+
+
+//Fill table with data english -> german
+function createTextEnglish() {
+	var elem = document.getElementById("germanTr");
+	elem.value = "";
+	count = 0; 
+	direction = 0;
+
+	
+	 // AJAX jQuery Call to JSON
+    $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
       vocs=item;
+      vocNum = vocs.length;
+      var anzahl = count;
+  	  var prozent = (100/vocNum)*anzahl;
+  	
+  	  $("#progressNum").text(anzahl+ " / "+vocNum+" words");
+  	  $(".bar").css("width",prozent+ "%");
         // For each item in our getJSON a row is added and cells to tableText
        
         	var tableText = item[0].english;
@@ -73,6 +144,23 @@ function createText() {
         
     });
     
+  
 
+
+};
+
+
+//solve
+function solve() {
+	var solved="";
+	 if(direction==0){
+		 solved = german;
+	   }
+	   else{
+		   solved = english;
+	   }
+	
+	var elem = document.getElementById("germanTr");
+	elem.value = solved;
 
 };

@@ -35,6 +35,31 @@ html
         br
         br
         br
+        .container.right
+           input#englishRadio(type='radio', name='SelectDirection', value='English', checked='checked')
+           | English -> German
+           br
+           input#germanRadio(type='radio', name='SelectDirection', value='German')
+           | German -> English
+           
+        .container.left
+           #help.modal.hide.fade.in(style='display: none;')
+             .modal-header
+               a.btn.btn-inverse.close(data-dismiss='modal')
+                 i.icon-white.icon-remove
+                
+               h3 Do you need help?
+             .modal-body
+               h4 Things to do here:
+               p laber rababer bla 
+               p sabbel
+                             
+           p
+            a.tooltips.btn.btn-primary.btn-small(data-toggle='modal', href='#help') 
+             | ?
+             span Need Help?
+       
+            
         table.table.table-striped.wid
             thead
                 th
