@@ -1,3 +1,13 @@
+/*
+ * Thanks to:
+ * http://glyphicons.com/ and their free icons for bootstrap
+ * Tutorials:
+ * http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+ * http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+ * 
+ */
+
+
 // Modules
 var express = require('express');
 var path = require('path');

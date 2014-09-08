@@ -33,16 +33,14 @@ function nextVoc(){
     english= vocs[count].english;
     german = vocs[count].german;
  
-//chenge the voc
-$('#english').text(tableText);
-var elem = document.getElementById("germanTr");
-elem.value = "";
+//change the voc
+ $('#english').text(tableText);
+ var elem = document.getElementById("germanTr");
+ elem.value = "";
 
-var anzahl = count;
-var prozent = (100/vocNum)*anzahl;
-	
-$("#progressNum").text(anzahl+ " / "+vocNum+" words");
-	 $(".bar").css("width",prozent+ "%");
+ var prozent = (100/vocNum)*count;	
+ $("#progressNum").text(count+ " / "+vocNum+" words");
+ $(".bar").css("width",prozent+ "%");
 	
 	
 }
@@ -89,10 +87,9 @@ function createTextGerman() {
     $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
      vocs=item;
      vocNum = vocs.length;
-     var anzahl = count;
-  	 var prozent = (100/vocNum)*anzahl;
+  	 var prozent = (100/vocNum)*count;
   	
-     $("#progressNum").text(anzahl+ " / "+vocNum+" words");
+     $("#progressNum").text(count+ " / "+vocNum+" words");
   	 $(".bar").css("width",prozent+ "%");
         // For each item in our getJSON a row is added and cells to tableText
        
@@ -126,10 +123,9 @@ function createTextEnglish() {
     $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
       vocs=item;
       vocNum = vocs.length;
-      var anzahl = count;
-  	  var prozent = (100/vocNum)*anzahl;
+  	  var prozent = (100/vocNum)*count;
   	
-  	  $("#progressNum").text(anzahl+ " / "+vocNum+" words");
+  	  $("#progressNum").text(count+ " / "+vocNum+" words");
   	  $(".bar").css("width",prozent+ "%");
         // For each item in our getJSON a row is added and cells to tableText
        

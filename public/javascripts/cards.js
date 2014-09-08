@@ -4,13 +4,15 @@ var currentVoc= '';
 var vocs = [];
 var count = 0; 
 var direction=0;
+var vocNum = 0;
 
 // DOM 
 $(document).ready(function() {
 
 	 createCardEnglish();
-	 $('#englishRadio').on('click', createCardEnglish);
-	 $('#germanRadio').on('click', createCardGerman);
+	$('#englishRadio').on('click', createCardEnglish);
+	$('#germanRadio').on('click', createCardGerman);
+	 $('#icon').on('click', flipit);
     $('#flipbox').on('click', flipit);
     $('#nextButton').on('click', nextCard);
     $(".tooltip-examples a").tooltip({
@@ -40,6 +42,9 @@ function nextCard(){
     $("#flipbox").css("background-color","lightgrey");
     currentVoc=1;
     $('#flipbox').text(tableText);
+ 	var prozent = (100/vocNum)*count;   	
+    $("#progressNum").text(count+ " / "+vocNum+" words");
+    $(".bar").css("width",prozent+ "%");
 
 	
 	
@@ -50,8 +55,8 @@ function flipit(){
 	var contentFlippi;
 	var contentFlippiBack;
 	  if(direction==0){
-		   contentFlippi=english;
-		   contentFlippiBack=german;
+		  contentFlippi = english;
+	     contentFlippiBack=german;
 	   }
 	   else{
 		   contentFlippi=german;
@@ -85,11 +90,16 @@ function flipit(){
 //Fill flashcard with data English
 function createCardEnglish() {
 	direction = 0;
+	count =0;
 	
     // AJAX jQuery Call to JSON
     $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
       vocs=item;
-       
+      vocNum = vocs.length;
+   	  var prozent = (100/vocNum)*count;   	
+      $("#progressNum").text(count+ " / "+vocNum+" words");
+   	  $(".bar").css("width",prozent+ "%");
+   	  
         	var tableText = item[0].english;
             english= item[0].english;
             german = item[0].german;
@@ -109,10 +119,15 @@ function createCardEnglish() {
 //Fill flashcard with data German
 function createCardGerman() {
 	direction = 1;
+	count =0;
     // AJAX jQuery Call to JSON
     $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
       vocs=item;
-       
+      vocNum = vocs.length;
+   	  var prozent = (100/vocNum)*count;   	
+      $("#progressNum").text(count+ " / "+vocNum+" words");
+   	  $(".bar").css("width",prozent+ "%");
+   	  
         	var tableText = item[0].german;
             english= item[0].english;
             german = item[0].german;
