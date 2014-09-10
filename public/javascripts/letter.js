@@ -74,7 +74,7 @@ $.getJSON( data, function( item ) {
 
 // Fill Sentence table on the right side with data
 function fillTable() {
-	
+
 	var tableText2 = '';
 	
 $.getJSON( data, function( item ) {
