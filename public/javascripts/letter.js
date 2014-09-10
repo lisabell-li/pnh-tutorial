@@ -141,17 +141,23 @@ function changeFeelNext() {
     
     
     if(laenge<=0){
-   	 var varGerman = "";
+   	 var varGermanSen = "";
+	 var varEnglishSen = "";	
+	 var varGerman = "";
 	 var varEnglish = "";	
    }
-   else if((laenge>0) && count>laenge-1){
+   else if((laenge>0) & (count>laenge-1)){
 	count =laenge-1;
-   	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[laenge-1]+ '</FONT>' ;
-    var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[laenge-1]+ '</FONT>' ;
+   	varGermanSen = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[laenge-1]+ '</FONT>' ;
+    varEnglishSen = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[laenge-1]+ '</FONT>' ;
+    varGerman = currentVoc.germanWords[laenge-1];
+	varEnglish = currentVoc.englishWords[laenge-1];	
    }
-   else if((laenge>0) && count<laenge-1){
-   	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
-    var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+   else {
+   	varGermanSen = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
+    varEnglishSen = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+    varGerman = currentVoc.germanWords[count];
+	varEnglish = currentVoc.englishWords[count];
 
    }
     
@@ -160,8 +166,8 @@ function changeFeelNext() {
     
 
 
-  varFeeli += '<td class="voc">' + currentVoc.englishSentence +varEnglish+ currentVoc.englishSentence2+ "." +  '</td>';
-  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman+  currentVoc.germanSentence2+"."+ '</td>';
+  varFeeli += '<td class="voc">' + currentVoc.englishSentence +varEnglishSen+ currentVoc.englishSentence2+ "." +  '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGermanSen+  currentVoc.germanSentence2+"."+ '</td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
@@ -194,15 +200,18 @@ function changeFeelPrev() {
 	    if(laenge<=0){
 	    	 var varGerman = "";
 		     var varEnglish = "";	
+		     var varGerman2 ="";
 	    }
 	    else if((laenge>0) && count<0 ){
 	    	count =0;
-	    	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[0]+ '</FONT>' ;
-	        var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[0]+ '</FONT>' ;
+	    	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[0]+ '</FONT>' ;
+	        varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[0]+ '</FONT>' ;
+	        varGerman2= currentVoc.englishWords[0];
 	    }
-	    else if((laenge>0) && count>0 ){
-	    	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
-	        var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+	    else{
+	    	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
+	        varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+	        varGerman2 = currentVoc.englishWords[count];
 
 	    }
 	   
@@ -212,7 +221,7 @@ function changeFeelPrev() {
 	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2+"." + '</td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
-	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman2 + currentVoc.germanSentence2 + '">Add</a></td>';
 
    //change the html of the relating row 
     $(this).parent().parent().html(varFeeli); 
