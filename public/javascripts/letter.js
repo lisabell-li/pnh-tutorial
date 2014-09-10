@@ -87,23 +87,28 @@ $.getJSON( data, function( item ) {
     	var laenge = this.englishWords.length;
     	var prev = "";
     	var next = "";
+    	var add= "";
     	 if(laenge<=0){
-    	   	 varGerman = "";
-    		 varEnglish = "";	
+    	   	 varGerman =  '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '</td>';
+    		 varEnglish = '<td class="voc">' + this.englishSentence+ '</td>';
+    		 prev="";
+    		 next="";
+    		 add='<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + '">Add</a></td>';
     	   }
     	   else if(laenge>0){
-    	   	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ english+ '</FONT>' ;
-    	    varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ german+ '</FONT>' ;
+    	   	varGerman = '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<FONT style="BACKGROUND-COLOR: yellow">'+ german+ '</FONT>'+ this.germanSentence2+"." + '</td>';
+    	    varEnglish = '<td class="voc">' + this.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">'+ english+ '</FONT>' + this.englishSentence2+ "."+'</td>';    	   
     	    prev ='<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Prev">Prev</a></td>';
     	    next = '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next">Next</a></td>';
+    	    add ='<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + german +  this.germanSentence2+ "." + '">Add</a></td>';
     	   }
     	 
     	tableText2 += '<tr>';
-    	tableText2 += '<td class="voc">' + this.englishSentence+ english+ this.englishSentence2+ "."+'</td>';
-    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + varGerman+ this.germanSentence2+"." + '</td>';
+    	tableText2 += varEnglish;
+    	tableText2 += varGerman;
     	tableText2 += prev;
     	tableText2 += next;
-    	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + german +  this.germanSentence2+ "." + '">Add</a></td>';
+    	tableText2 += add;
     	tableText2 += '</tr>';
 
     });
