@@ -84,11 +84,25 @@ $.getJSON( data, function( item ) {
     	var relattr = this._id+"+"+ 0;
     	var german =  this.germanWords[0];
     	var english =  this.englishWords[0];
+    	var laenge = this.englishWords.length;
+    	var prev = "";
+    	var next = "";
+    	 if(laenge<=0){
+    	   	 varGerman = "";
+    		 varEnglish = "";	
+    	   }
+    	   else if(laenge>0){
+    	   	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ english+ '</FONT>' ;
+    	    varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ german+ '</FONT>' ;
+    	    prev ='<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Prev">Prev</a></td>';
+    	    next = '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next">Next</a></td>';
+    	   }
+    	 
     	tableText2 += '<tr>';
-    	tableText2 += '<td class="voc">' + this.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +english+'</FONT>'+this.englishSentence2+ "."+'</td>';
-    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<FONT style="BACKGROUND-COLOR: yellow">'+ german+'</FONT>'+ this.germanSentence2+"." + '</td>';
-    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Prev">Prev</a></td>';
-    	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next">Next</a></td>';
+    	tableText2 += '<td class="voc">' + this.englishSentence+ english+ this.englishSentence2+ "."+'</td>';
+    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + varGerman+ this.germanSentence2+"." + '</td>';
+    	tableText2 += prev;
+    	tableText2 += next;
     	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + german +  this.germanSentence2+ "." + '">Add</a></td>';
     	tableText2 += '</tr>';
 
@@ -120,21 +134,29 @@ function changeFeelNext() {
     //set german and english word
     var laenge = currentVoc.germanWords.length;
     
-    if(count>laenge-1){
-    	count =laenge-1;
-    	var varGerman = currentVoc.germanWords[laenge-1];
-        var varEnglish = currentVoc.englishWords[laenge-1];
-    }
-    else{
-        var varGerman = currentVoc.germanWords[count];
-        var varEnglish = currentVoc.englishWords[count];	
-    }
-   
+    
+    if(laenge<=0){
+   	 var varGerman = "";
+	 var varEnglish = "";	
+   }
+   else if((laenge>0) && count>laenge-1){
+	count =laenge-1;
+   	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[laenge-1]+ '</FONT>' ;
+    var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[laenge-1]+ '</FONT>' ;
+   }
+   else if((laenge>0) && count<laenge-1){
+   	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
+    var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+
+   }
+    
+    
+ 
     
 
 
-  varFeeli += '<td class="voc">' + currentVoc.englishSentence+  '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ '</FONT>' +currentVoc.englishSentence2+ "." +  '</td>';
-  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' + '</FONT>' + currentVoc.germanSentence2+"."+ '</td>';
+  varFeeli += '<td class="voc">' + currentVoc.englishSentence +varEnglish+ currentVoc.englishSentence2+ "." +  '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman+  currentVoc.germanSentence2+"."+ '</td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
@@ -163,20 +185,26 @@ function changeFeelPrev() {
 	    //set german and english word
 	    var laenge = currentVoc.germanWords.length;
 	    
-	    if(count<0){
-	    	count =0;
-	    	var varGerman = currentVoc.germanWords[0];
-	        var varEnglish = currentVoc.englishWords[0];
+	    
+	    if(laenge<=0){
+	    	 var varGerman = "";
+		     var varEnglish = "";	
 	    }
-	    else{
-	        var varGerman = currentVoc.germanWords[count];
-	        var varEnglish = currentVoc.englishWords[count];	
+	    else if((laenge>0) && count<0 ){
+	    	count =0;
+	    	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[0]+ '</FONT>' ;
+	        var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[0]+ '</FONT>' ;
+	    }
+	    else if((laenge>0) && count>0 ){
+	    	var varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
+	        var varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
+
 	    }
 	   
 
 
-	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ '</FONT>' + currentVoc.englishSentence2+"." +'</td>';
-	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+ varGerman+ '</FONT>' + currentVoc.germanSentence2+"." + '</td>';
+	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ varEnglish+  currentVoc.englishSentence2+"." +'</td>';
+	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2+"." + '</td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
