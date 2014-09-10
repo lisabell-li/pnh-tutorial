@@ -107,7 +107,7 @@ opacity: 0.4;
   height: 350px;
   left: 55%;
   margin-top:50px;
-  background-color:#088A08;         
+  background-color: lightgrey;         
 }
 
 #left {
@@ -115,7 +115,7 @@ opacity: 0.4;
   height: 350px;         
   padding: 5px;     
   left: -30%;
-  background-color:#1B3F8B;/**#e39241;**/
+  background-color: lightgrey;
   margin-top: 50px;
 }
 

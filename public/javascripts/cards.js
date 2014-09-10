@@ -5,6 +5,7 @@ var vocs = [];
 var count = 0; 
 var direction=0;
 var vocNum = 0;
+var data= "";
 
 // DOM 
 $(document).ready(function() {
@@ -92,8 +93,13 @@ function createCardEnglish() {
 	direction = 0;
 	count =0;
 	
-    // AJAX jQuery Call to JSON
-    $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
+	var url =document.URL;
+	var split = url.split('?');
+	var id =split[1];
+	data= "/tutorial/cards/getvocs/"+id;
+	 // AJAX jQuery Call to JSON
+    $.getJSON( data , function( item ) { 
+	 
       vocs=item;
       vocNum = vocs.length;
    	  var prozent = (100/vocNum)*count;   	
@@ -120,8 +126,13 @@ function createCardEnglish() {
 function createCardGerman() {
 	direction = 1;
 	count =0;
-    // AJAX jQuery Call to JSON
-    $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
+	
+	var url =document.URL;
+	var split = url.split('?');
+	var id =split[1];
+	data= "/tutorial/cards/getvocs/"+id;
+	 // AJAX jQuery Call to JSON
+    $.getJSON( data , function( item ) { 
       vocs=item;
       vocNum = vocs.length;
    	  var prozent = (100/vocNum)*count;   	

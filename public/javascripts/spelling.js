@@ -5,6 +5,7 @@ var vocs = [];
 var vocNum = 0;
 var count = 0; 
 var direction =0;
+var data =0;
 // DOM 
 $(document).ready(function() {
 
@@ -83,8 +84,14 @@ function createTextGerman() {
 	
     direction = 1;
     count = 0; 
+    
+    var url =document.URL;
+	var split = url.split('?');
+	var id =split[1];
+	data= "/tutorial/cards/getvocs/"+id;
+	
     // AJAX jQuery Call to JSON
-    $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
+    $.getJSON( data, function( item ) {  
      vocs=item;
      vocNum = vocs.length;
   	 var prozent = (100/vocNum)*count;
@@ -117,10 +124,12 @@ function createTextEnglish() {
 	elem.value = "";
 	count = 0; 
 	direction = 0;
-
-	
+	var url =document.URL;
+	var split = url.split('?');
+	var id =split[1];
+	data= "/tutorial/cards/getvocs/"+id;
 	 // AJAX jQuery Call to JSON
-    $.getJSON( '/tutorial/cards/getvocs', function( item ) {  
+    $.getJSON( data , function( item ) {  
       vocs=item;
       vocNum = vocs.length;
   	  var prozent = (100/vocNum)*count;

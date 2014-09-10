@@ -11,9 +11,10 @@ router.get('/lettercreation/vocGreet', function(req, res) {
    });
 });
 
-router.get('/lettercreation/vocFeeling', function(req, res) {
+router.get('/lettercreation/:id', function(req, res) {
 	   var db = req.db;
-	   db.collection('vocFeeling').find().toArray(function (err, items) {
+	   var cat = req.params.id;
+	   db.collection(cat).find().toArray(function (err, items) {
 	       res.json(items);
 	   });
 	});
@@ -25,9 +26,10 @@ router.get('/lettercreation/getLetter', function(req, res) {
 	   });
 	});
 
-router.get('/cards/getvocs', function(req, res) {
+router.get('/cards/getvocs/:id', function(req, res) {
 	   var db = req.db;
-	   db.collection('vocList1').find().toArray(function (err, items) {
+	   var cat = req.params.id;
+	   db.collection(cat).find().toArray(function (err, items) {
 	       res.json(items);
 	   });
 	});
@@ -46,15 +48,7 @@ router.post('/lettercreation/addLetter', function(req, res) {
 });
 
 
-/*
- * DELETE to deleteuser.
- */
-router.delete('/lettercreation/deleteSentence/:id', function(req, res) {
-    var db = req.db;
-    var userToDelete = req.params.id;
-    db.collection('letter').removeById(userToDelete, function(err, result) {
-        res.send((result === 1) ? { msg: '' } : { msg:'error: ' + err });
-    });
-});
+
+
 
 module.exports = router;

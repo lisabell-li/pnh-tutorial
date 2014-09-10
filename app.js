@@ -26,7 +26,6 @@ var db = mongoskin.db(mongoUri,{w:1});
 
 //routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var tutorial = require('./routes/tutorial');
 
 // express variable
@@ -53,7 +52,6 @@ app.use(function(req, res, next){
 
 //Routing
 app.use('/', routes);
-app.use('/users', users);
 app.use('/tutorial', tutorial);
 
 /// catch and send 404error to error handler

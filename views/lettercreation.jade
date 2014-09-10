@@ -24,7 +24,7 @@ html
                 li.non-active
                   a(href='/tutorial/spellingvoc') Vocabulary: Test
                 li.active
-                  a(href='/tutorial/lettercreation') Letter Creator
+                  a(href='/tutorial/lettercreation?vocGreet') Letter Creator 
         //-Nav-Bar 
         br
         br     
@@ -33,15 +33,65 @@ html
         br
         
         #middle.column  
+       
+           button.btn.btn-success.btn-large#catButton
+             i.icon-white.icon-chevron-down#ici
+             |  Choose a Category
+           
+               
+           #Cattable
+            br
+            br
+            table(style='text-align: left; margin-left: 2%; margin-right: 2%;')
+             tr
+              th 
+               a(href='/tutorial/lettercreation?vocGreet')
+                img.img-circle.img-responsive(src='/images/hellobye.png', alt='hello & bye', width="150", height="150")
+              
+              th 
+               a(href='/tutorial/lettercreation?vocFeeling')
+                img.img-circle.img-responsive(src='/images/School.png', alt='School',  width="150", height="100", )
+              th 
+               a(href='/tutorial/lettercreation?weather')
+                img.img-circle.img-responsive(src='/images/weather.png', alt='weather',  width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?ceremonies')
+                img.img-circle.img-responsive(src='/images/ceremonies.png', alt='ceremonies', width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?aboutme')
+                img.img-circle.img-responsive(src='/images/aboutme.png', alt='about me',  width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?family')
+                img.img-circle.img-responsive(src='/images/family.png', alt='family',  width="150", height="150")            
+             tr
+              th 
+               a(href='/tutorial/lettercreation?friends')
+                img.img-circle.img-responsive(src='/images/friends.png', alt='friends',  width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?food')
+                img.img-circle.img-responsive(src='/images/food.png', alt='food', width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?colorsNumbers')
+                img.img-circle.img-responsive(src='/images/colorsNumbers.png', alt='colors & numbers',  width="150", height="150")
+                           
+              th 
+               a(href='/tutorial/lettercreation?hobbies')
+                img.img-circle.img-responsive(src='/images/hobbies.png', alt='hobbies',  width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?PNH')
+                img.img-circle.img-responsive(src='/images/PNH.png', alt='PNH',  width="150", height="150")
+              th 
+               a(href='/tutorial/lettercreation?sickness')
+                img.img-circle.img-responsive(src='/images/sickness.png',  width="150", height="150", alt='sickness')          
+        
             //English German Voc Table
-            h3(style='color: white;')    &nbsp;Add Sentences              
-            #vocTable
+           h3(style='color: white;')    &nbsp;Add Sentences              
+           #vocTable
                 table.table.table-bordered              
                          tr
                            th English    -   German
                               
-                         tr#greetz
-                           th#greet                            
+                                                  
                          tr#feeltz
                            th#fee1
             //-English German Voc Table

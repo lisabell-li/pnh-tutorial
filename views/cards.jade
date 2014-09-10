@@ -8,73 +8,102 @@ html
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
     script(src='/bootstrap/js/bootstrap.min.js')
-    script(src='/javascripts/cards.js')
+    script(src='/javascripts/spelling.js')
     title= title
   body
   
     block content
-     
     #wrapper
       #header
         nav.navbar.navbar-default.navbar-static-top
                ul.nav.navbar-nav
-                li.non-active
+                li.non-active 
                   a(href='/tutorial') Home
                 li.active
                   a(href='/tutorial/cards') Vocabulary: Flashcards
                 li.non-active
                   a(href='/tutorial/spellingvoc') Vocabulary: Test
                 li.non-active
-                  a(href='/tutorial/lettercreation') Letter Creator 
+                  a(href='/tutorial/lettercreation?vocGreet') Letter Creator 
         br
         br     
         h1= title
         p German-English Tutorial for the PNH girls
         br
-      #body  
-        br
-        br
-        br
-        .container.right
-           input#englishRadio(type='radio', name='SelectDirection', value='English', checked='checked')
-           | English -> German
-           br
-           input#germanRadio(type='radio', name='SelectDirection', value='German')
-           | German -> English
-           
+        
+      #body       
+     
+     
         .container.left
            #help.modal.hide.fade.in(style='display: none;')
              .modal-header
                a.btn.btn-inverse.close(data-dismiss='modal')
                  i.icon-white.icon-remove
                 
-               h3 Do you need help?
+               h3 Choose a Category
              .modal-body
                h4 Things to do here:
-               p laber rababer bla 
-               p sabbel
+               p Please select a Category to learn words which belong to the category. 
+               p To select a category simply click on the name of one category.
+               p If you selected a category a new page will open showing the first word of the selected category. You can start practising now.
+               p To close this help-window click on the X on the right upper corner of this small help-window.
                              
            p
             a.tooltips.btn.btn-primary.btn-small(data-toggle='modal', href='#help') 
              | ?
              span Need Help?
-       
-        #flipContainer    
-         #flipbox
-         #icon
-           i.icon-hand-up
-         
-        #flipafter   
-         p#progressNum(style='text-align: left; margin-left: 400px;')
-        .progress.progress-success.active(style='width: 700px; margin-left: 400px;')
-         .bar(style='width: 0%;')
-               
-        .btn.btn-success.btn-large#nextButton
-           | next
-           i.icon-white.icon-arrow-right            
-                    
-             
-            
-     
-            
- 
+        br
+        br
+        
+        h1 Choose a Category
+         br
+         br
+         table(style='text-align: left; margin-left: 40px; margin-right: 20px;')
+             tr
+              th 
+               a(href='/tutorial/cards/cat?vocList1')
+                img.img-circle.img-responsive(src='/images/hellobye.png', alt='hello & bye', width="250", height="250")
+              
+              th 
+               a(href='/tutorial/cards/cat?school')
+                img.img-circle.img-responsive(src='/images/School.png', alt='School', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/cat?weather')
+                img.img-circle.img-responsive(src='/images/weather.png', alt='weather', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/cat?ceremonies')
+                img.img-circle.img-responsive(src='/images/ceremonies.png', alt='ceremonies', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/cat?aboutme')
+                img.img-circle.img-responsive(src='/images/aboutme.png', alt='about me', width="250", height="250")
+
+              th 
+               a(href='/tutorial/cards/cat?family')
+                img.img-circle.img-responsive(src='/images/family.png', alt='family', width="250", height="250")
+              
+             tr
+              th 
+               a(href='/tutorial/cards/cat?friends')
+                img.img-circle.img-responsive(src='/images/friends.png', alt='friends', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/cat?food')
+                img.img-circle.img-responsive(src='/images/food.png', alt='food', width="250", height="250") 
+              th 
+               a(href='/tutorial/cards/cat?colorsNumbers')
+                img.img-circle.img-responsive(src='/images/colorsNumbers.png', alt='colors & numbers', width="250", height="250")
+                           
+              th 
+               a(href='/tutorial/cards/cat?hobbies')
+                img.img-circle.img-responsive(src='/images/hobbies.png', alt='hobbies', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/catt?PNH')
+                img.img-circle.img-responsive(src='/images/PNH.png', alt='PNH', width="250", height="250")
+              th 
+               a(href='/tutorial/cards/cat?sickness')
+                img.img-circle.img-responsive(src='/images/sickness.png', width="250", height="250", alt='sickness')          
+        
+        
+        
+        
+        
+        

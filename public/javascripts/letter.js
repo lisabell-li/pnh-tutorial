@@ -2,17 +2,17 @@ var varFeel ='';
 var letterDext='';
 var feelingData = [];
 var counter = 1;
+var coCa =0;
+var data="";
 
 
 // DOM 
 $(document).ready(function() {
 	
-	
-    fillTable();
-    
+	getURL();
+    hideCats();
     createLetter();
-    
-
+    $('#catButton').on('click', showCats);
     $('#vocTable #feeltz').on('click', 'td a.linkChangeFeelNext', changeFeelNext);
     $('#vocTable #feeltz').on('click', 'td a.linkChangeFeelPrev', changeFeelPrev);
     $('#vocTable ').on('click', 'td a.addToLetter', addToLetter);
@@ -45,31 +45,34 @@ function getCookieName(cookieName) {
 
 
 
+function fillTableGreet() {
+// empty String
+var tableText = '';
+
+// AJAX jQuery Call to JSON
+$.getJSON( '/tutorial/lettercreation/vocGreet', function( item ) {  
+
+    // For each item in our getJSON a row is added and cells to tableText
+    $.each(item, function(){
+    	tableText += '<tr>';
+    	tableText += '<td class="voc">' + this.english+ '</td>';
+    	tableText += '<td class="voc">' + this.german + '</td>';
+    	tableText += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.german + '">Add</a></td>';
+    	tableText += '</tr>';
+   
+    	
+    });
+
+    // The entire content, created with the data from db is added to HTML-table
+    $('#fee1').html(tableText);
+    
+});
+};
 
 // Fill Sentence table on the right side with data
 function fillTable() {
 
-    // empty String
-    var tableText = '';
-
-    // AJAX jQuery Call to JSON
-    $.getJSON( '/tutorial/lettercreation/vocGreet', function( item ) {  
-
-        // For each item in our getJSON a row is added and cells to tableText
-        $.each(item, function(){
-        	tableText += '<tr>';
-        	tableText += '<td class="voc">' + this.english+ '</td>';
-        	tableText += '<td class="voc">' + this.german + '</td>';
-        	tableText += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.german + '">Add</a></td>';
-        	tableText += '</tr>';
-       
-        	
-        });
-
-        // The entire content, created with the data from db is added to HTML-table
-        $('#greet').html(tableText);
-        
-    });
+   
     // empty String
     var tableText2 = '';
   
@@ -192,13 +195,12 @@ function createLetter() {
     var letterText="";
 	
 	if(sentences==""){
-		letterText += "Create your one letter by adding sentences from the right."
-        document.getElementById("deleteall").style.visibility="hidden";
+		letterText += "Create your one letter by adding sentences from the right."	
 		
 	}
 	else{
 	for (var i = 0; i < sentences.length-1; i++) {
-		document.getElementById("deleteall").style.visibility="visible";
+		document.getElementById("deleteall").style.visibility="visible";		
 		
 		letterText += '<tr>';
     	letterText += '<td>'+'<strong>' + sentences[i] + '</strong>'+'</td>';
@@ -263,5 +265,41 @@ function deleteAllSentenceFromLetter() {
         	//no confirmation = do nothing
             return false;
         }
+};
+
+
+//show cats
+function showCats() {
+	if(coCa==1){
+		document.getElementById("Cattable").style.display="none";
+		coCa=0;
+	}
+	else if(coCa==0){
+	document.getElementById("Cattable").style.display="inline";
+	coCa =1;
+	}
+};
+
+
+//show cats
+function hideCats() {
+	document.getElementById("Cattable").style.display="none";
+};
+
+
+
+function getURL() {	
+	
+	var url =document.URL;
+	var split = url.split('?');
+	var id =split[1];
+	data= "/lettercreation/"+id;
+	
+	if(id=="vocGreet"){
+	fillTableGreet();	
+	}
+	else{
+	fillTable();
+	}
 };
 

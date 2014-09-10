@@ -1,0 +1,80 @@
+doctype html
+html
+  head
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/cards.js')
+    title= title
+  body
+  
+    block content
+     
+    #wrapper
+      #header
+        nav.navbar.navbar-default.navbar-static-top
+               ul.nav.navbar-nav
+                li.non-active
+                  a(href='/tutorial') Home
+                li.active
+                  a(href='/tutorial/cards') Vocabulary: Flashcards
+                li.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                li.non-active
+                  a(href='/tutorial/lettercreation?vocGreet') Letter Creator 
+        br
+        br     
+        h1= title
+        p German-English Tutorial for the PNH girls
+        br
+      #body  
+        br
+        br
+        br
+        .container.right
+           input#englishRadio(type='radio', name='SelectDirection', value='English', checked='checked')
+           | English -> German
+           br
+           input#germanRadio(type='radio', name='SelectDirection', value='German')
+           | German -> English
+           
+        .container.left
+           #help.modal.hide.fade.in(style='display: none;')
+             .modal-header
+               a.btn.btn-inverse.close(data-dismiss='modal')
+                 i.icon-white.icon-remove
+                
+               h3 Do you need help?
+             .modal-body
+               h4 Things to do here:
+               p laber rababer bla 
+               p sabbel
+                             
+           p
+            a.tooltips.btn.btn-primary.btn-small(data-toggle='modal', href='#help') 
+             | ?
+             span Need Help?
+       
+        #flipContainer    
+         #flipbox
+         #icon
+           i.icon-hand-up
+         
+        #flipafter   
+         p#progressNum(style='text-align: left; margin-left: 400px;')
+        .progress.progress-success.active(style='width: 700px; margin-left: 400px;')
+         .bar(style='width: 0%;')
+               
+        .btn.btn-success.btn-large#nextButton
+           | next
+           i.icon-white.icon-arrow-right            
+                    
+             
+            
+     
+            
+ 
