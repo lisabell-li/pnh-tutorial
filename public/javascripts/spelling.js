@@ -63,13 +63,10 @@ function checkit(){
 	}
     else {
     	alert("I'm sorry. But your answer is wrong"+letter+"+"+transl);	
-    	
-    }
 	
-    	
-    
+    }
+
 }
-  
    else{
 	   alert("Please enter something");	  
    }
@@ -89,7 +86,6 @@ function createTextGerman() {
 	var split = url.split('?');
 	var id =split[1];
 	data= "/tutorial/cards/getvocs/"+id;
-	
     // AJAX jQuery Call to JSON
     $.getJSON( data, function( item ) {  
      vocs=item;

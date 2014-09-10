@@ -3,7 +3,7 @@ var letterDext='';
 var feelingData = [];
 var counter = 1;
 var coCa =0;
-var data="";
+var data=0;
 
 
 // DOM 
@@ -48,9 +48,12 @@ function getCookieName(cookieName) {
 function fillTableGreet() {
 // empty String
 var tableText = '';
-
+var url =document.URL;
+var split = url.split('?');
+var id =split[1];
+data= "/tutorial/lettercreation/vocs/"+id;
 // AJAX jQuery Call to JSON
-$.getJSON( '/tutorial/lettercreation/vocGreet', function( item ) {  
+$.getJSON( data, function( item ) {  
 
     // For each item in our getJSON a row is added and cells to tableText
     $.each(item, function(){
@@ -71,12 +74,9 @@ $.getJSON( '/tutorial/lettercreation/vocGreet', function( item ) {
 
 // Fill Sentence table on the right side with data
 function fillTable() {
-
-   
-    // empty String
-    var tableText2 = '';
-  
-
+	
+	var tableText2 = '';
+	
 $.getJSON( data, function( item ) {
 	feelingData = item;
 	// For each item in our getJSON a row is added and cells to tableText2
@@ -293,7 +293,7 @@ function getURL() {
 	var url =document.URL;
 	var split = url.split('?');
 	var id =split[1];
-	data= "/lettercreation/"+id;
+	data= "/tutorial/lettercreation/vocs/"+id;
 	
 	if(id=="vocGreet"){
 	fillTableGreet();	
