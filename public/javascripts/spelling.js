@@ -89,7 +89,7 @@ function createTextGerman() {
 	var split = url.split('?');
 	var id =split[1];
 	data= "/tutorial/cards/getvocs/"+id;
-	
+	alert(data);
     // AJAX jQuery Call to JSON
     $.getJSON( data, function( item ) {  
      vocs=item;
