@@ -85,8 +85,8 @@ $.getJSON( data, function( item ) {
     	var german =  this.germanWords[0];
     	var english =  this.englishWords[0];
     	tableText2 += '<tr>';
-    	tableText2 += '<td class="voc">' + this.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +english+'</FONT>'+ "."+'</td>';
-    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<FONT style="BACKGROUND-COLOR: yellow">'+ german+'</FONT>'+ "." + '</td>';
+    	tableText2 += '<td class="voc">' + this.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +english+'</FONT>'+this.englishSentence2+ "."+'</td>';
+    	tableText2 += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<FONT style="BACKGROUND-COLOR: yellow">'+ german+'</FONT>'+ this.germanSentence2+"." + '</td>';
     	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Prev">Prev</a></td>';
     	tableText2 += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next">Next</a></td>';
     	tableText2 += '<td class="delete"><a href="#" class="addToLetter" rel="' + this.germanSentence + german + "." + '">Add</a></td>';
@@ -133,8 +133,8 @@ function changeFeelNext() {
     
 
 
-  varFeeli += '<td class="voc">' + currentVoc.englishSentence+  '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+  "." +  '</td>';
-  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' +"."+ '</td>';
+  varFeeli += '<td class="voc">' + currentVoc.englishSentence+  '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ currentVoc.englishSentence2+ "." +  '</td>';
+  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' + currentVoc.germanSentence2+"."+ '</td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman  + '">Add</a></td>';
@@ -176,8 +176,8 @@ function changeFeelPrev() {
 	    
 
 
-	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ "." +'</td>';
-	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+ varGerman+"." + '</td>';
+	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ currentVoc.englishSentence2+"." +'</td>';
+	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+ varGerman+ currentVoc.germanSentence2+"." + '</td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman  + '">Add</a></td>';
