@@ -77,7 +77,7 @@ function fillTable() {
     var tableText2 = '';
   
 
-$.getJSON( '/tutorial/lettercreation/vocFeeling ', function( item ) {
+$.getJSON( data, function( item ) {
 	feelingData = item;
 	// For each item in our getJSON a row is added and cells to tableText2
     $.each(item, function(){
