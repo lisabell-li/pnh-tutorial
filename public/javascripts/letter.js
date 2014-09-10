@@ -81,7 +81,7 @@ $.getJSON( data, function( item ) {
 	feelingData = item;
 	// For each item in our getJSON a row is added and cells to tableText2
     $.each(item, function(){
-    	var relattr = this.englishSentence+"+"+ 0;
+    	var relattr = this._id+"+"+ 0;
     	var german =  this.germanWords[0];
     	var english =  this.englishWords[0];
     	tableText2 += '<tr>';
@@ -111,7 +111,7 @@ function changeFeelNext() {
     var counti = attr[1]; 
     var count =1+ parseInt(counti);
     // Get Index of word based on rel attribute
-    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.englishSentence; }).indexOf(englishWord);
+    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem._id; }).indexOf(englishWord);
     
     var currentVoc = feelingData[arrayPosition];
     // Get the object
@@ -135,8 +135,8 @@ function changeFeelNext() {
 
   varFeeli += '<td class="voc">' + currentVoc.englishSentence+  '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ '</FONT>' +currentVoc.englishSentence2+ "." +  '</td>';
   varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+'<u>'+ varGerman+ '</u>' + '</FONT>' + currentVoc.germanSentence2+"."+ '</td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
 
     //change the html of the relating row
@@ -154,7 +154,7 @@ function changeFeelPrev() {
 	    var counti = attr[1]; 
 	    var count = parseInt(counti)-1;
 	    // Get Index of word based on rel attribute
-	    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem.englishSentence; }).indexOf(englishWord);
+	    var arrayPosition = feelingData.map(function(arrayItem) { return arrayItem._id; }).indexOf(englishWord);
 	    
 	    var currentVoc = feelingData[arrayPosition];
 	    // Get the object
@@ -173,14 +173,13 @@ function changeFeelPrev() {
 	        var varEnglish = currentVoc.englishWords[count];	
 	    }
 	   
-	    
 
 
 	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ '<FONT style="BACKGROUND-COLOR: yellow">' +varEnglish+ '</FONT>' + currentVoc.englishSentence2+"." +'</td>';
 	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence +'<FONT style="BACKGROUND-COLOR: yellow">'+ varGerman+ '</FONT>' + currentVoc.germanSentence2+"." + '</td>';
-	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Prev">Prev</a></td>';
-	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc.englishSentence +"+"+ count + '" title="Next">Next</a></td>';
-	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + + currentVoc.germanSentence2 + '">Add</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
 
    //change the html of the relating row 
     $(this).parent().parent().html(varFeeli); 
