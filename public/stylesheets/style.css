@@ -128,7 +128,10 @@ opacity: 0.4;
 }
 
 #box.bg{ 
-  height: 180px;    
+  height: 150px;  
+  margin-left:15%;
+  margin-right:0%;
+width: 100%;
 }
 
 a:link {color:#000000;}
