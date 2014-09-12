@@ -75,8 +75,6 @@ p.bold {
 
 .table.table.table-striped.wid {
   column-width:700px;
-  -webkit-column-width:700px;
-  -moz-column-width:700px; 
 
 }
 
@@ -207,4 +205,11 @@ a.tooltips span:after {
   display:inline-block;
     text-align:center;
 
+}
+
+i.icon-hand-up {
+   position:absolute;
+    bottom:10px;
+    right:10px;
+    transform:scale(1.5,1.5);  
 }
