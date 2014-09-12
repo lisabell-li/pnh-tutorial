@@ -22,7 +22,10 @@ router.get('/tutorial/cards/cat', function(req, res) {
 	  res.render('cardsCat', { title: 'Tutorial German - English'});
 });
 
-
+/* GET Spelling Vocabulary page */
+router.get('/tutorial/spellingvoc/end', function(req, res) {
+	  res.render('spellingEnd', { title: 'Tutorial German - English'});
+	});
 
 /* GET Spelling Vocabulary page */
 router.get('/tutorial/spellingvoc/cat', function(req, res) {

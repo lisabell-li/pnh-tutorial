@@ -24,6 +24,7 @@ $(document).ready(function() {
 function nextVoc(){
 	//increase the voc count and get the next voc from the array vocs
 	count += 1;
+	if(count<vocs.length){
 	 if(direction==0){
 		 var tableText = vocs[count].english;
 	   }
@@ -42,7 +43,12 @@ function nextVoc(){
  var prozent = (100/vocNum)*count;	
  $("#progressNum").text(count+ " / "+vocNum+" words");
  $(".bar").css("width",prozent+ "%");
-	
+}
+ else{
+		$(".bar").css("width",100+ "%");
+		window.setInterval(function(){window.location.href = "/tutorial/spellingvoc/end"},2000);
+		
+	}
 	
 }
 

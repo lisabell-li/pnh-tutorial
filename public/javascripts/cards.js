@@ -28,7 +28,7 @@ $(document).ready(function() {
 function nextCard(){
 	//get next from the list created in createCard and assigns german and english variable new
 	count += 1;
-	
+	if(count<vocs.length){
 	var transl;
 	   if(direction==0){
 		   transl = vocs[count].english;
@@ -46,7 +46,12 @@ function nextCard(){
  	var prozent = (100/vocNum)*count;   	
     $("#progressNum").text(count+ " / "+vocNum+" words");
     $(".bar").css("width",prozent+ "%");
-
+	}
+	else{
+		$(".bar").css("width",100+ "%");
+		window.setInterval(function(){window.location.href = "/tutorial/spellingvoc/end"},2000);
+		
+	}
 	
 	
 }

@@ -206,12 +206,12 @@ function changeFeelPrev() {
 	    	count =0;
 	    	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[0]+ '</FONT>' ;
 	        varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[0]+ '</FONT>' ;
-	        varGerman2= currentVoc.englishWords[0];
+	        varGerman2= currentVoc.germanWords[0];
 	    }
 	    else{
 	    	varGerman = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.germanWords[count]+ '</FONT>' ;
 	        varEnglish = '<FONT style="BACKGROUND-COLOR: yellow">'+ currentVoc.englishWords[count]+ '</FONT>' ;
-	        varGerman2 = currentVoc.englishWords[count];
+	        varGerman2 = currentVoc.germanWords[count];
 
 	    }
 	   
