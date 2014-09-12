@@ -170,7 +170,7 @@ function changeFeelNext() {
   varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGermanSen+  currentVoc.germanSentence2+"."+ '</td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
-  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 + '">Add</a></td>';
+  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 +"." +  '">Add</a></td>';
 
     //change the html of the relating row
     $(this).parent().parent().html(varFeeli);
@@ -221,7 +221,7 @@ function changeFeelPrev() {
 	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2+"." + '</td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Prev">Prev</a></td>';
 	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next">Next</a></td>';
-	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman2 + currentVoc.germanSentence2 + '">Add</a></td>';
+	  varFeeli += '<td class="delete"><a href="#" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman2 + currentVoc.germanSentence2 +"." +  '">Add</a></td>';
 
    //change the html of the relating row 
     $(this).parent().parent().html(varFeeli); 
