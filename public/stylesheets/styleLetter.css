@@ -49,8 +49,12 @@ p {
   width: 35%;          
   padding: 5px;     
   left: -55%;
-  background-color:lightgrey;
+  background-color:white;
   margin-top: 30px;
+  margin-bottom: 30px;
+border: 2px solid #0099CC;
+
+
 }
 
 #footer {
@@ -67,14 +71,14 @@ a:hover {color:#000000;}
 }
 
 td.delete{
-  width: 10%;
+  width: 5%;
   border-top: 0;
   font-color:#FFFFFF;
   text-align: left;
 }
 
 td.voc{
-  width: 300px;
+  width: 40%;
   border-top: 0;
   font-color:#FFFFFF;
   text-align: left;
@@ -97,5 +101,74 @@ ul.nav.navbar-nav > li  {
 li.non-active{
 background-color:white;
 
+}
+
+
+#sortable { 
+ list-style-type: none; 
+ width: 90%;  		
+ padding: 0.4em; 
+ font-size: 1.2em; 
+
+           }
+#sortable li{
+ margin-top: 5px;
+ height:24px;
+	    font-color: #0099CC;
+}
+ 
+.ui-icon ui-icon-arrowthick-2-n-s {  
+position: absolute; 
+margin-left: -0.1em; 
+}
+
+.ui-icon{
+ position: absolute; 
+}
+
+
+.deleteFromLetter {
+ position: absolute; 
+  left: 87%;
+}
+
+.addToLetter{
+font-weight: bold;
+color: #0099CC;
+}
+
+a.tooltips {
+  position: relative;
+  display: inline;
+}
+
+a.tooltips span {
+  position: absolute;
+  width:300px;
+  color: #000000;
+  background: #FFFFFF;
+  border: 2px solid #0099CC;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+
+}
+
+
+
+
+a:hover.tooltips span {
+  visibility: visible;
+
+  top: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+}
+
+a.tooltips span:after {
+  visibility: hidden;
 }
 

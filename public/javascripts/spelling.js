@@ -46,6 +46,7 @@ function nextVoc(){
 }
  else{
 		$(".bar").css("width",100+ "%");
+		$("#progressNum").text(vocNum+ " / "+vocNum+" words");
 		window.setInterval(function(){window.location.href = "/tutorial/spellingvoc/end"},2000);
 		
 	}

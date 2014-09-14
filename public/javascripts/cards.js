@@ -16,10 +16,7 @@ $(document).ready(function() {
 	 $('#icon').on('click', flipit);
     $('#flipbox').on('click', flipit);
     $('#nextButton').on('click', nextCard);
-    $(".tooltip-examples a").tooltip({
-        placement : 'top'
-    });
-  
+   
    
 
 });
@@ -49,6 +46,7 @@ function nextCard(){
 	}
 	else{
 		$(".bar").css("width",100+ "%");
+		$("#progressNum").text(vocNum+ " / "+vocNum+" words");
 		window.setInterval(function(){window.location.href = "/tutorial/spellingvoc/end"},2000);
 		
 	}

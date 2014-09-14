@@ -2,8 +2,6 @@ doctype html
 html
   head
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-    script(src='/flip/roncioso-Flip/jquery.flip.min.js')
-    script(src='/flip/roncioso-Flip/jquery.flip.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
@@ -66,9 +64,9 @@ html
            i.icon-eye-open  
            | 
            | Solve
-        .form.form-horizontal(method="post", id="loginForm")         
+        .form.form-horizontal       
           label enter the correct translation
-          input.span3(id="germanTr", placeholder="", type="text", name="germanTr", onkeydown='if (event.keyCode == 13) document.getElementById("SubmitVoc").click()')
+          input.span3(id="germanTr", type="text", name="germanTr", onkeydown='if (event.keyCode == 13) document.getElementById("SubmitVoc").click()')
           input.btn(type="submit", id="SubmitVoc", value="Submit")  
                
                

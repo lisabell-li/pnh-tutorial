@@ -12,8 +12,10 @@ router.get('/lettercreation/vocGreet', function(req, res) {
 });
 
 router.get('/lettercreation/vocs/:id', function(req, res) {
+	
 	   var db = req.db;
 	   var cat = req.params.id;
+
 	   db.collection(cat).find().toArray(function (err, items) {
 	       res.json(items);
 	   });

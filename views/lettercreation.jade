@@ -2,9 +2,13 @@ doctype html
 html
   head
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.min.js')
+    script(src='/flip/roncioso-Flip/jquery.flip.js')
+    script(src="//code.jquery.com/ui/1.11.1/jquery-ui.js")    
     link(rel='stylesheet', href='/stylesheets/styleLetter.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css")
     script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/javascripts/letter.js')
     title= title
@@ -34,9 +38,9 @@ html
         
         #middle.column  
        
-           button.btn.btn-success.btn-large#catButton
+           button.btn.btn-success#catButton
              i.icon-white.icon-chevron-down#ici
-             |  Choose a Category
+             |  Show Categories
            
                
            #Cattable
@@ -89,38 +93,29 @@ html
            #vocTable
                 table.table.table-bordered              
                          tr
-                           th English    -   German
-                              
-                                                  
-                         tr#feeltz
-                           th#fee1
+                           th(style='color: #0099CC; font-size: 1.4em;') Add sentences to your letter
+                         tr
+                           th#changeSentece(style='font-size: 0.8em;') 
+                         tr                                                                                            
+                         tr#fee1
+                          
             //-English German Voc Table
                                                                                          
 
         #left.column
             //LetterList
-            h3(style='color: white;')    &nbsp;Your Letter
+            h3(style='color: #0099CC;')    &nbsp;Your Letter
             #letter.letter
-                table.table.lt
-                    thead
-                        th
-                    tbody
-                #deleteall  Delete all? 
-                #copyall                
+                ul#sortable        
+                br
+                btn.btn.btn-info.btn-small#deleteall(style="margin-left: 5%; font-size: 0.9em; ")  Delete all 
+                br
+                br
+                btn.btn.btn-info.btn-small#showEnglish(style="margin-left: 5%; font-size: 0.9em; ")  
+                #sponsorName
+                            
             //-Letter List
-            
-            .modal.fade
-             .modal-dialog
-               .modal-content
-                 .modal-header
-                   button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                   h4.modal-title Modal title
-                 .modal-body
-                   p One fine body…
-                 .modal-footer
-                   button.btn.btn-default(type='button', data-dismiss='modal') Close
-                   button.btn.btn-primary(type='button') Save changes
-                    
+     
             
            
 
