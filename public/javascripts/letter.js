@@ -286,7 +286,7 @@ function createLetter() {
     var letterText="";
 	
 	if(sentences==""){
-		letterText += "Create your one letter by adding sentences from the right."	
+		letterText += "Create your own letter by adding sentences from the right."	
 		
 	}
 	else{
