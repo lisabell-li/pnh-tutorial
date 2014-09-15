@@ -4,7 +4,7 @@ var feelingData = [];
 var counter = 1;
 var coCa =0;
 var data=0;
-var letterInLanguage;
+var letterInLanguage=0;
 
 
 // DOM 
@@ -297,7 +297,8 @@ function createLetter() {
 	
 	}
 	}
-	$('#showEnglish').html("Show letter in <b>German</b>");
+
+	$('#showEnglish').html("Show letter in <b>English</b>");
 	 $('#sortable').html(letterText);
 	 $('#changeSentece').html("Use the arrows to change <a style='BACKGROUND-COLOR: #0099CC; color: white;'> &nbsp words &nbsp</a> of the sentences");
 	

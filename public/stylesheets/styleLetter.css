@@ -114,7 +114,10 @@ background-color:white;
 #sortable li{
  margin-top: 5px;
  height:24px;
-	    font-color: #0099CC;
+background: white;
+border: 2px solid #0099CC  ;
+
+color: black;
 }
  
 .ui-icon ui-icon-arrowthick-2-n-s {  
