@@ -155,6 +155,7 @@ $.getJSON( data, function( item ) {
 
     // The entire content, created with the data from db is added to HTML-table
     $('#fee1').html(tableText2);
+    $('#changeSentece').html("Use the arrows to change <a style='BACKGROUND-COLOR: #0099CC; color: white;'> &nbsp words &nbsp</a> of the sentences");
    
 });
 
@@ -300,7 +301,7 @@ function createLetter() {
 
 	$('#showEnglish').html("Show letter in <b>English</b>");
 	 $('#sortable').html(letterText);
-	 $('#changeSentece').html("Use the arrows to change <a style='BACKGROUND-COLOR: #0099CC; color: white;'> &nbsp words &nbsp</a> of the sentences");
+	
 	
 
 };
