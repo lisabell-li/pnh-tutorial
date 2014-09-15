@@ -32,6 +32,9 @@ p {
 }
 
 
+
+
+
 p.bold {
   text-align: left;
   margin-left: 400px;
@@ -215,4 +218,6 @@ i.icon-hand-up {
    transform:scale(1.5,1.5);  
 }
 
-
+.tb{
+margin-left: 20%;
+}
