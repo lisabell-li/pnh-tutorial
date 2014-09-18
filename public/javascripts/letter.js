@@ -130,7 +130,7 @@ $.getJSON( data, function( item ) {
     		 varEnglish = '<td class="voc">' + this.englishSentence+ '</td>';
     		 prev='<td class="delete"></td>';
     		 next='<td class="delete"></td>';
-    		 add='<td class="delete"><a href="#" style="color: #0099CC;" class="addToLetter" rel="' + this.germanSentence + '">Add</a></td>';
+    		 add='<td class="delete"><a href="#" style="color: #0099CC;" class="addToLetter" rel="' + this.germanSentence +"#"+ this.englishSentence + '">Add</a></td>';
     	   }
     	 
     	   else if(laenge>0){

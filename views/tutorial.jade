@@ -23,7 +23,7 @@ html
                 li.non-active
                   a(href='/tutorial/cards') Vocabulary: Flashcards
                 li.non-active
-                  a(href='/tutorial/spellingvoc') Vocabulary: Test
+                  a(href='/tutorial/spellingvoc') Vocabulary: Write Words 
                 li.non-active
                   a(href='/tutorial/lettercreation?vocGreet') Letter Creator 
         
@@ -35,53 +35,20 @@ html
         
        #container
         br
-        p This tutorial was made to help the PNH girls to comunicate with their (german) sponsors.
-        p Two different sections - Vocabulary and Lettercreation - are designed to support the girl->sponsor communication.        
-        p The vocabulary is limited to words which are needed for basic communication with their sponsors. 
-        p The goal: Each PNH girls should be able to write her own individual letter.
-               
-         #right.column
-          h2.tu Create a letter
-          br        
-          a.white(href='/tutorial/lettercreation?vocGreet') 
-           #box.bg
-            table
-             tr
-              th.delete 
-               br
-               img(src='images/letterPate.png', alt='Letter to sponsor', width="150", height="150")
-              th 
-
-               h4 Create your own letter   
-          
-         #left.column
-          h2.tu Learn Vocabulary
-  
-          a.white(href="/tutorial/cards")
-           #box.bg
-            br
-            table
-             tr
-              th  
-               img(src='images/indexflash.PNG', alt='Learn flashcards', width="150", height="150")
-              th
-              th
-              th 
-               h4 Flashcards 
-             
-          
-          a.white(href="/tutorial/spellingvoc")
-           #box.bg
-            table
-             tr
-              th
-               img(src='images/indexspell.PNG', alt='test your spelling', width="150", height="150")
-              th
-              th
-              th 
-               h4 Test your knowledge
-          
-         
-          
-          
-      
+        br
+        br
+        br
+        p This tutorial was made to help the PNH girls communicate with their (german) sponsors.
+        p Two different sections - Vocabulary and Letter Creator - are designed to support the girl<->sponsor communication.        
+        p The vocabulary is limited to words which are needed for basic communication between girl and sponsor. 
+        p The goal: Each PNH girls is able to write her own individual letter and thus enhance the communication.
+        br
+        br
+        ul(style="text-align:center; font-weight: bold;")
+                list-inline.active 
+                  a(href='/tutorial/cards') Vocabulary: Flashcards   |  
+                list-inline.non-active
+                  a(href='/tutorial/spellingvoc') Vocabulary: Write Words    
+                br
+                list-inline.non-active
+                  a(href='/tutorial/lettercreation?vocGreet') Letter Creator
