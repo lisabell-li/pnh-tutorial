@@ -3,10 +3,13 @@ html
   head
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="//code.jquery.com/ui/1.11.1/jquery-ui.js")   
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
     script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/javascripts/spelling.js')
+    link(rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css")
+    
     title= title
   body
   
@@ -33,10 +36,10 @@ html
         .container.right
         
            input#englishRadio(type='radio', name='SelectDirection', value='English', checked='checked')
-           | English -> German
+           | English first
            br
            input#germanRadio(type='radio', name='SelectDirection', value='German')
-           | German -> English
+           | German first
      
         .container.left
            #help.modal.hide.fade.in(style='display: none;')
@@ -46,9 +49,13 @@ html
                 
                h3 Do you need help?
              .modal-body
-               h4 Things to do here:
-               p laber rababer bla 
-               p sabbel
+               h4 Things to do here:              
+               p Find the translation of the word displayed on this page.
+               p To do so write down the correct translation in the input field.
+               p Press "Submit" to check whether your answer is correct or not.
+               p If you need help, press "Solve" and the correct answer is shown to you inside the input field.
+               p Press "next" to see the next word.
+               p Use the radio buttons to decide which language you want to see first.
                              
            p
             a.tooltips.btn.btn-primary.btn-small(data-toggle='modal', href='#help') 
@@ -56,8 +63,9 @@ html
              span Need Help?
         br
         br
+        br     
+        p(style="margin-left: 300px; text-align: left; font-weight: bold;")#whichWord      
         p.bold#english         
-        br
         br
         br
         .btn.btn-success.btn-mini.spell#solveButton
@@ -65,11 +73,11 @@ html
            | 
            | Solve
         .form.form-horizontal       
-          label enter the correct translation
+          label(style="font-weight: bold;")#tranword
           input.span3(id="germanTr", type="text", name="germanTr", onkeydown='if (event.keyCode == 13) document.getElementById("SubmitVoc").click()')
-          input.btn(type="submit", id="SubmitVoc", value="Submit")  
-               
-               
+          input.btn(type="submit", id="SubmitVoc", value="Submit")
+        
+        #check(style="position: absolute; left: 750px")   
          
         .btn.btn-info.spell#nextButton
            | next

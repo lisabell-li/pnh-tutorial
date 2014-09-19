@@ -95,7 +95,8 @@ function flipit(){
 function createCardEnglish() {
 	direction = 0;
 	count =0;
-	
+	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: #0099CC; font-size: 18px;'><img src='/images/arrow.png' , alt='flip card',  width='100', height='100'></img>Click on the card to see the german word</div>");
+
 	var url =document.URL;
 	var split = url.split('?');
 	var id =split[1];
@@ -127,6 +128,8 @@ function createCardEnglish() {
 
 //Fill flashcard with data German
 function createCardGerman() {
+	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: #0099CC; font-size: 18px;'><img src='/images/arrow.png' , alt='flip card',  width='100', height='100'></img>Click on the card to see the english word</div>");
+
 	direction = 1;
 	count =0;
 	

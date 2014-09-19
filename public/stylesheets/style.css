@@ -1,7 +1,6 @@
 body {
   
- 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", "Helvetica", "Arial", "sans-serif";
 
 }
 
@@ -27,12 +26,9 @@ p {
  
 }
 
-.container.left {
+.container{
  margin-left: 40%
 }
-
-
-
 
 
 p.bold {
@@ -44,7 +40,6 @@ p.bold {
 }
 
 #flipbox {
-
   height: 400px;
   line-height: 400px;
   background-color: lightgrey;
@@ -53,8 +48,8 @@ p.bold {
   font-size: 4em;
   color: #ffffff;
   text-align: center;
-   width:700px;
-   margin-left: 400px;
+  width:700px;
+  margin-left: 400px;
   position:relative;
   display:inline-block;
  
@@ -91,15 +86,9 @@ background-color:#0099CC;
 
 }
 
-.picB{
-background-image: url("../../images/berlin.jpg");
-opacity: 0.4;
-}
-
 .column {
  float: left;  
- position: relative;
- 
+ position: relative; 
 }
 
 #right {    
@@ -107,9 +96,7 @@ opacity: 0.4;
   height: 350px;
   margin-left:50%;
   margin-top:50px;
-  background-color: lightgrey; 
- 
-         
+  background-color: lightgrey;          
 }
 
 #left {
@@ -135,10 +122,21 @@ opacity: 0.4;
   width: 100%;
 }
 
-a:link {color:#000000;}
-a:visited {color:#000000;}
-a.white:hover {color:white;text-decoration:none;}
-a.white:link { text-align: center; }
+a:link {
+  color:#000000;
+}
+
+a:visited {
+  color:#000000;
+}
+
+a.white:hover {
+  color:white;text-decoration:none;
+}
+
+a.white:link { 
+  text-align: center; 
+}
 
 th.delete{
   width: 30%;
@@ -194,7 +192,7 @@ a:hover.tooltips span {
   opacity: 0.8;
   top: 30px;
   left: 50%;
-  margin-left: -76px;
+  margin-left: -200px;
   z-index: 999;
 }
 
@@ -218,4 +216,8 @@ i.icon-hand-up {
    transform:scale(1.5,1.5);  
 }
 
+.ui-icon{
+ position: absolute; 
+
+}
 

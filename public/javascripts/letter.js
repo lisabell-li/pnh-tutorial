@@ -31,18 +31,17 @@ $(document).ready(function() {
    				sentences = currCookie.split("+");
    		 	    var currCookie2= getCookieName("letter");//returns cookie or ""
     	    	sentences2 = currCookie2.split("+");
-    	    	//alert("result = "+result);
+
                 var letterText="";
     		    var sentencetoAddGer= "";
       	        var sentencetoAddEng ="";
       	        var cookieEng= "";
       	        var cookieGer= "";
-      	        //alert("länge cook "+sentences.length+"länge result "+result.length);
+      	       
     			for (var i = 0; i < result.length; i++) {
     			  var stelle =result[i];	
     			   cookieEng += sentences[stelle]+"+";
-    			   cookieGer += sentences2[stelle]+"+";
-    			   //alert(sentences[0]+sentences[result.length]);
+    			   cookieGer += sentences2[stelle]+"+";    			  
     			}
     			
     			   setTheCookie("letter", cookieGer);
@@ -285,15 +284,21 @@ function createLetter() {
 	sentences = currCookie.split("+");
 	}
     var letterText="";
-	
+    if(sentences.length>2){
+		$('#draginfo').html("Drag a sentence to change the order. ");
+		}
+    else{
+    	 $('#draginfo').html("");
+    }
 	if(sentences==""){
-		letterText += "Create your own letter by adding sentences from the right."	
+		letterText += "Create your own letter by <span style='color: #0099CC; font-weight: bold;'>adding</span> sentences from the right."	
+
 		
 	}
 	else{
+		
 	for (var i = 0; i < sentences.length-1; i++) {
 		document.getElementById("deleteall").style.visibility="visible";		
-	
 		letterText += '<li class="ui-state-default" id="'+i+'"><a  class="tooltips"><span  style="font-size: 0.8em;">Drag the sentences to change the order</span> <div class="ui-icon ui-icon-arrowthick-2-n-s"></div></a>'+ '&nbsp' +'&nbsp' + '&nbsp' +'&nbsp' + sentences[i] +'<a href="#" class="deleteFromLetter"  rel="' +  sentences[i] + '"><span class="ui-icon ui-icon-closethick"></span></a></li>';
 	
 	}
@@ -301,7 +306,7 @@ function createLetter() {
 
 	$('#showEnglish').html("Show letter in <b>English</b>");
 	 $('#sortable').html(letterText);
-	
+	 
 	
 
 };

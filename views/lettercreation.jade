@@ -37,6 +37,27 @@ html
         br
         
         #middle.column  
+           .container.left
+            #help.modal.hide.fade.in(style='display: none;')
+             .modal-header
+               a.btn.btn-inverse.close(data-dismiss='modal')
+                 i.icon-white.icon-remove
+                
+               h3 Do you need help?
+             .modal-body
+               h4 Things to do here:              
+               p.black Create your own letter.
+               p.black Click on the green button "Show Categories".
+               p.black Select a Category
+               p.black Use the arrows next to the sentences (if existing) to change the sentence.
+               p.black Click on "Add" to add a sentence to your letter.
+               p.black Click on the "x" next to the sentence on "Your letter" to delete a sentence.
+               p.black Drag a sentence to change the order.
+                             
+            p
+             a.tooltips.btn.btn-primary.btn-small(data-toggle='modal', href='#help' ) 
+              | ?
+
        
            button.btn.btn-success#catButton
              i.icon-white.icon-chevron-down#ici
@@ -89,7 +110,8 @@ html
                 img.img-circle.img-responsive(src='/images/sickness.png',  width="150", height="150", alt='sickness')          
         
             //English German Voc Table
-           h3(style='color: white;')    &nbsp;Add Sentences              
+           h3(style='color: white;')
+           br            
            #vocTable
                 table.table.table-bordered              
                          tr
@@ -105,14 +127,18 @@ html
         #left.column
             //LetterList
             h3   &nbsp;Your Letter
-            #letter.letter
-                ul#sortable        
+            #letter.letter 
+                ul#sortable Choose a Category       
                 br
                 btn.btn.btn-info.btn-small#deleteall(style="margin-left: 5%; font-size: 0.9em; ")  Delete all 
                 br
                 br
                 btn.btn.btn-info.btn-small#showEnglish(style="margin-left: 5%; font-size: 0.9em; ")  
+                br
+                br
+                #draginfo
                 #sponsorName
+              
                             
             //-Letter List
      

@@ -1,13 +1,12 @@
 body {
-  min-width: 400px;      
+  font: 14px "Lucida Grande", "Helvetica", "Arial", "sans-serif";
 
- 
+  min-width: 400px;       
 }
 
 h1 {
   text-align: center;
 }
-
 
 p {
   text-align: center;
@@ -17,11 +16,7 @@ p {
 
 .letter {
   height: auto;
-  border: none;
-  font-family: Helvetica;
-  font-size: 14px;
-
- 
+  border: none; 
 }
 
 .table.table.lt{
@@ -52,34 +47,35 @@ p {
   background-color:white;
   margin-top: 30px;
   margin-bottom: 30px;
-border: 2px solid #0099CC;
+  border: 2px solid #0099CC;
 
 
 }
 
-#footer {
-  clear: both;
+
+a:link {
+  color:#000000;
+}
+a:visited {
+  color:#000000;
 }
 
+a:hover {
+  color:#000000;
+}
 
-a:link {color:#000000;}
-a:visited {color:#000000;}
-a:hover {color:#000000;}
-
-.table>tbody>tr>th, .table>tbody>tr>td {
+.table>tbody>tr>th {
     border-top: none;
 }
 
 td.delete{
   width: 5%;
-  border-top: 0;
   font-color:#FFFFFF;
   text-align: left;
 }
 
 td.voc{
   width: 40%;
-  border-top: 0;
   font-color:#FFFFFF;
   text-align: left;
 }
@@ -98,6 +94,7 @@ ul.nav.navbar-nav > li  {
   border-color: #0099CC;
 }
 
+
 li.non-active{
 background-color:white;
 
@@ -111,18 +108,18 @@ background-color:white;
  font-size: 1.2em; 
 
            }
+
+
 #sortable li{
  margin-top: 5px;
- 
-background: white;
-border: 2px solid #0099CC  ;
-
-color: black;
+ background: white;
+ border: 2px solid #0099CC;
+ color: black;
 }
  
 .ui-icon ui-icon-arrowthick-2-n-s {  
-position: absolute; 
-margin-left: -0.1em; 
+ position: absolute; 
+ margin-left: -0.1em; 
 }
 
 .ui-icon{
@@ -132,12 +129,12 @@ margin-left: -0.1em;
 
 .deleteFromLetter {
  position: absolute; 
-  left: 87%;
+ left: 87%;
 }
 
 .addToLetter{
-font-weight: bold;
-color: #0099CC;
+ font-weight: bold;
+ color: #0099CC;
 }
 
 /*.tooltips css generated with thanks here: http://www.cssportal.com/css-tooltip-generator/# */
@@ -163,10 +160,9 @@ a.tooltips span {
 
 a:hover.tooltips span {
   visibility: visible;
-
   top: 30px;
   left: 50%;
-  margin-left: -76px;
+ margin-left: -76px;
   z-index: 999;
 }
 
@@ -174,3 +170,13 @@ a.tooltips span:after {
   visibility: hidden;
 }
 
+
+
+.container.left {
+  margin-left:200px;
+}
+
+p.black {
+  color: #000000;
+text-align: left;
+}

@@ -23,6 +23,7 @@ $(document).ready(function() {
 
 function nextVoc(){
 	//increase the voc count and get the next voc from the array vocs
+	$('#check').html("");
 	count += 1;
 	if(count<vocs.length){
 	 if(direction==0){
@@ -65,20 +66,20 @@ function checkit(){
    var letter=document.getElementById('germanTr').value;
    if(letter !== "") {
 	if(letter.toLowerCase()==transl){
-    	alert("Correct. Congratulations\n\n"+"english: "+ english +"\n\ngerman: "+german+"\n\nNext one?");	
-    	nextVoc();
+     	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: green; font-size: 20px;'><span class='ui-icon ui-icon-check'></span>"+"&nbsp"+"&nbsp" +"&nbsp"+ "&nbsp"+ "Correct</div>");
+
 	}
     else {
-    	alert("I'm sorry. But your answer is wrong"+letter+"+"+transl);	
-	
+    	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: red; font-size: 20px;'><span class='ui-icon ui-icon-closethick'></span>"+"&nbsp"+"&nbsp" +"&nbsp"+ "&nbsp"+ "Not correct</div>");
+
     }
 
 }
    else{
-	   alert("Please enter something");	  
+	   alert("Please enter a word");	  
    }
    var elem = document.getElementById("germanTr");
-	elem.value = "";
+
 }
 
 //Fill table with data german-> english
@@ -111,7 +112,8 @@ function createTextGerman() {
 
         // The entire content, created with the data from db is added to HTML-table
         $('#english').text(tableText);
-        
+        $('#whichWord').text("German word:");
+        $('#tranword').text("enter the correct English word:");
     });
     
 
@@ -149,6 +151,8 @@ function createTextEnglish() {
 
         // The entire content, created with the data from db is added to HTML-table
         $('#english').text(tableText);
+        $('#whichWord').text("English word:");
+        $('#tranword').text("enter the correct German word:");
         
     });
     
@@ -160,6 +164,7 @@ function createTextEnglish() {
 
 //solve
 function solve() {
+	$('#check').html("");
 	var solved="";
 	 if(direction==0){
 		 solved = german;
