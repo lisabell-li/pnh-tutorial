@@ -135,7 +135,7 @@ $.getJSON( data, function( item ) {
     	   else if(laenge>0){
     	   	varGerman = '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + this.germanSentence + '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' + german+'&nbsp' +  '</a>'+ this.germanSentence2+"." + '</td>';
     	    varEnglish = '<td class="voc">' + this.englishSentence+ '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' +  english +'&nbsp' +  '</a>' + this.englishSentence2+ "."+'</td>';    	   
-    	    prev ='<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + relattr + '" title="Previous version of this sentence"><span class="ui-icon ui-icon-circle-arrow-w"></span> </a></td>';
+    	    prev ='<td class="delete"></td>';
     	    next = '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + relattr + '" title="Next version of this sentence"><span class="ui-icon ui-icon-circle-arrow-e"></span></a></td>';
     	    add ='<td class="delete" ><a href="#" style="color: #0099CC;"  class="addToLetter" rel="' + this.germanSentence + german +  this.germanSentence2+ "." +  "#"+ this.englishSentence + english +  this.englishSentence2+"." +'">Add</a></td>';
     	   }
@@ -143,8 +143,6 @@ $.getJSON( data, function( item ) {
     	tableText2 += '<tr>';
     	tableText2 += prev;
     	tableText2 += varEnglish;
-    	
-    	
     	tableText2 += varGerman;
     	tableText2 += next;
     	tableText2 += add;
@@ -185,6 +183,7 @@ function changeFeelNext() {
 	 var varEnglishSen = "";	
 	 var varGerman = "";
 	 var varEnglish = "";	
+	 var next ="";
    }
    else if((laenge>0) & (count>laenge-1)){
 	count =laenge-1;
@@ -192,24 +191,21 @@ function changeFeelNext() {
     varEnglishSen = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+ '&nbsp' + currentVoc.englishWords[laenge-1]+'&nbsp' +  '</a>' ;
     varGerman = currentVoc.germanWords[laenge-1];
 	varEnglish = currentVoc.englishWords[laenge-1];	
+	next='<td class="delete">';
    }
    else {
    	varGermanSen = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' +  currentVoc.germanWords[count]+ '&nbsp' + '</a>' ;
     varEnglishSen = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' +  currentVoc.englishWords[count]+ '&nbsp' + '</a>' ;
     varGerman = currentVoc.germanWords[count];
 	varEnglish = currentVoc.englishWords[count];
+	next='<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next version of this sentence"><span class="ui-icon ui-icon-circle-arrow-e"></span></a></td>';'<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next version of this sentence"><span class="ui-icon ui-icon-circle-arrow-e"></span></a></td>';
 
    }
-    
-    
-     
 
   varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Previous version of this sentence"><span class="ui-icon ui-icon-circle-arrow-w"></span></a></td>';
   varFeeli += '<td class="voc">' + currentVoc.englishSentence +varEnglishSen+ currentVoc.englishSentence2+ "." +  '</td>';
- 
   varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGermanSen+  currentVoc.germanSentence2+"."+ '</td>';
-  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelNext" rel="' + currentVoc._id +"+"+ count + '" title="Next version of this sentence"><span class="ui-icon ui-icon-circle-arrow-e"></span></a></td>';
-  
+  varFeeli += next;
   varFeeli += '<td class="delete"><a href="#" style="color: #0099CC;" class="addToLetter" rel="' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2 +"." +"#" + currentVoc.englishSentence + varEnglish + currentVoc.englishSentence2  + "." +'">Add</a></td>';
  
     //change the html of the relating row
@@ -236,30 +232,38 @@ function changeFeelPrev() {
 	    //set german and english word
 	    var laenge = currentVoc.germanWords.length;
 	    
-	    
+	    var prev="";
+	    var varGerman = "";
+	     var varEnglish = "";	
+	     var varGerman2 ="";
+	     var varEnglish2 ="";
 	    if(laenge<=0){
-	    	 var varGerman = "";
-		     var varEnglish = "";	
-		     var varGerman2 ="";
-		     var varEnglish2 ="";
+	    	  varGerman = "";
+		      varEnglish = "";	
+		     varGerman2 ="";
+		     varEnglish2 ="";
+		     prev='<td class="delete">'
 	    }
-	    else if((laenge>0) && count<0 ){
+	    else if((laenge>0) && count<=0 ){
 	    	count =0;
 	    	varGerman = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' +  currentVoc.germanWords[0]+ '&nbsp' + '</a>' ;
 	        varEnglish = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+ '&nbsp' + currentVoc.englishWords[0]+ '&nbsp' + '</a>' ;
 	        varGerman2= currentVoc.germanWords[0];
 	        varEnglish2= currentVoc.englishWords[0];
+	        prev='<td class="delete">';
+	        
 	    }
 	    else{
 	    	varGerman = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change the word</span>'+ '&nbsp' + currentVoc.germanWords[count]+ '&nbsp' + '</a>' ;
 	        varEnglish = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change the  word</span>'+ '&nbsp' + currentVoc.englishWords[count]+ '&nbsp' + '</a>' ;
 	        varGerman2 = currentVoc.germanWords[count];
 	        varEnglish2= currentVoc.englishWords[count];
+	        prev = '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Previous version of this sentence"><span class="ui-icon ui-icon-circle-arrow-w"></span> </a></td>';
 
 	    }
 	 
-	 
-	  varFeeli += '<td class="delete"><a href="#" class="linkChangeFeelPrev" rel="' + currentVoc._id +"+"+ count + '" title="Previous version of this sentence"><span class="ui-icon ui-icon-circle-arrow-w"></span> </a></td>';
+	 alert(count);
+	  varFeeli += prev;
 	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ varEnglish+  currentVoc.englishSentence2+"." +'</td>';
 	
 	  varFeeli += '<td class="voc">' +'&nbsp' +'&nbsp' +'&nbsp' + currentVoc.germanSentence + varGerman + currentVoc.germanSentence2+"." + '</td>';
