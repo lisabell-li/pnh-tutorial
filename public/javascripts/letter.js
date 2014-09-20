@@ -262,7 +262,7 @@ function changeFeelPrev() {
 
 	    }
 	 
-	 alert(count);
+
 	  varFeeli += prev;
 	  varFeeli += '<td class="voc">' + currentVoc.englishSentence+ varEnglish+  currentVoc.englishSentence2+"." +'</td>';
 	
