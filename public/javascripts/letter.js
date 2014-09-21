@@ -185,7 +185,7 @@ function changeFeelNext() {
 	 var varEnglish = "";	
 	 var next ="";
    }
-   else if((laenge>0) & (count>laenge-1)){
+   else if((laenge>0) & (count>=laenge-1)){
 	count =laenge-1;
    	varGermanSen = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+'&nbsp' +  currentVoc.germanWords[laenge-1]+'&nbsp' +  '</a>' ;
     varEnglishSen = '<a  class="tooltips"  style="BACKGROUND-COLOR: #0099CC; color: white"  ><span>Use the arrows -> to change this word</span>'+ '&nbsp' + currentVoc.englishWords[laenge-1]+'&nbsp' +  '</a>' ;
