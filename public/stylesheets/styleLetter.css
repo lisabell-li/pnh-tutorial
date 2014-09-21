@@ -180,3 +180,7 @@ p.black {
   color: #000000;
 text-align: left;
 }
+
+.img-responsive{
+border:2px solid lightgrey;
+}
