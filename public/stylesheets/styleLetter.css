@@ -162,7 +162,7 @@ a:hover.tooltips span {
   visibility: visible;
   top: 30px;
   left: 50%;
- margin-left: -76px;
+  margin-left: -76px;
   z-index: 999;
 }
 
@@ -178,7 +178,7 @@ a.tooltips span:after {
 
 p.black {
   color: #000000;
-text-align: left;
+ text-align: left;
 }
 
 .img-responsive{

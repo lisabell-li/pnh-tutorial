@@ -6,12 +6,11 @@ var vocNum = 0;
 var count = 0; 
 var direction =0;
 var data =0;
+
 // DOM 
 $(document).ready(function() {
 
-	createTextEnglish();
-
-	 
+	createTextEnglish(); 
 	$('#englishRadio').on('click', createTextEnglish);
     $('#germanRadio').on('click', createTextGerman);
     $('#SubmitVoc').on('click', checkit);
@@ -94,7 +93,7 @@ function createTextGerman() {
 	var split = url.split('?');
 	var id =split[1];
 	data= "/tutorial/cards/getvocs/"+id;
-    // AJAX jQuery Call to JSON
+    // Call to JSON
     $.getJSON( data, function( item ) {  
      vocs=item;
      vocNum = vocs.length;

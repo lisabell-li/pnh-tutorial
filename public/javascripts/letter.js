@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 }); 
 
-/* with thank to the tutorial http://www.w3schools.com/js/js_cookies.asp */
+
 
 //COOKIE FUNCTIONS: A big thanks to the tutorial http://www.w3schools.com/js/js_cookies.asp
 function setTheCookie(cookieName, cookieValue) {
@@ -83,7 +83,7 @@ var url =document.URL;
 var split = url.split('?');
 var id =split[1];
 data= "/tutorial/lettercreation/vocs/"+id;
-// AJAX jQuery Call to JSON
+//  Call to JSON
 tableText += '<tr><td ><input type="text" class="form-control" placeholder="Enter your sponsor\'s name" id ="sponsorName"></td></tr>';
 
 $.getJSON( data, function( item ) {  
@@ -93,12 +93,9 @@ $.getJSON( data, function( item ) {
     
     	tableText += '<tr>';
     	tableText += '<td class="voc">' + this.english+ '</td>';
-    	tableText += '<td class="voc">' + this.german + '</td>';
-    
+    	tableText += '<td class="voc">' + this.german + '</td>';    
     	tableText += '<td class="delete"><a href="#" style="color: #0099CC;" class="addToLetter" rel="' + this.german + "#"+ this.english +'">Add</a></td>';
     	tableText += '</tr>';
-    
-   
     	
     });
 
@@ -366,10 +363,6 @@ function deleteSentenceFromLetter() {
 		
 	    sentenceToDelete2 =sentences2[index];
 	}
-    
-    
-    
-    
     var newCookie = currCookie.replace(sentenceToDelete+"+","");
     var newCookieEnglish =currCookie2.replace(sentenceToDelete2+"+","");
     
@@ -417,13 +410,13 @@ function showCats() {
 };
 
 
-//show cats
+//hide cats
 function hideCats() {
 	document.getElementById("Cattable").style.display="none";
 };
 
 
-
+//get URL
 function getURL() {	
 	
 	var url =document.URL;

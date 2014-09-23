@@ -10,10 +10,10 @@ var data= "";
 // DOM 
 $(document).ready(function() {
 
-	 createCardEnglish();
+	createCardEnglish();
 	$('#englishRadio').on('click', createCardEnglish);
 	$('#germanRadio').on('click', createCardGerman);
-	 $('#icon').on('click', flipit);
+	$('#icon').on('click', flipit);
     $('#flipbox').on('click', flipit);
     $('#nextButton').on('click', nextCard);
    
@@ -21,7 +21,9 @@ $(document).ready(function() {
 
 });
 
+
 //FUNCTIONS
+
 function nextCard(){
 	//get next from the list created in createCard and assigns german and english variable new
 	count += 1;
@@ -54,6 +56,8 @@ function nextCard(){
 	
 }
 
+
+//With thanks to the creators of the Flip! Plugin
 //flip card
 function flipit(){
 	var contentFlippi;
@@ -128,11 +132,9 @@ function createCardEnglish() {
 
 //Fill flashcard with data German
 function createCardGerman() {
-	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: #0099CC; font-size: 18px;'><img src='/images/arrow.png' , alt='flip card',  width='100', height='100'></img>Click on the card to see the english word</div>");
-
+	$('#check').html("<div style='margin-top: -30px; font-weight: bold; color: #0099CC; font-size: 18px;'><img src='/images/arrow.png' , alt='flip card',  width='100', height='100'></img>Click on the card to see the english word</div>")
 	direction = 1;
-	count =0;
-	
+	count =0;	
 	var url =document.URL;
 	var split = url.split('?');
 	var id =split[1];

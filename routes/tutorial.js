@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET vocs
- * HTTP GET to tutorial/vocGreet, the server will return JSON each voc in the collection vocGreet
+/* GET vocs and sentences from DB
  * */
 router.get('/lettercreation/vocGreet', function(req, res) {
    var db = req.db;

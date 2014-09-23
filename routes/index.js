@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 //render views
-/* GET Homepage. [to be changed]*/
+/* GET Homepage. [to be changed when implemented to the website]*/
 router.get('/', function(req, res) {
 	return res.redirect('/tutorial');
 });
@@ -12,7 +12,7 @@ router.get('/tutorial/lettercreation', function(req, res) {
 	  res.render('lettercreation', { title: 'Tutorial German - English'});
 	});
 
-/* GET Flashcards page. */
+/* GET Flashcards page Categories. */
 router.get('/tutorial/cards', function(req, res) {
 	  res.render('cards', { title: 'Tutorial German - English'});
 });
@@ -32,7 +32,7 @@ router.get('/tutorial/spellingvoc/cat', function(req, res) {
 	  res.render('spellCat', { title: 'Tutorial German - English'});
 	});
 
-
+/* GET Spelling Vocabulary page Categories */
 router.get('/tutorial/spellingvoc', function(req, res) {
 	  res.render('spellingvoc', { title: 'Tutorial German - English'});
 	});

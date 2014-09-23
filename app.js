@@ -19,7 +19,6 @@ var bodyParser = require('body-parser');
 //Databases
 var mongoskin = require('mongoskin');
 //path of database
-//var db = mongo.db("mongodb://localhost:27017/pnh", {native_parser:true});
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/pnh';
 var db = mongoskin.db(mongoUri,{w:1});
 
@@ -54,17 +53,17 @@ app.use(function(req, res, next){
 app.use('/', routes);
 app.use('/tutorial', tutorial);
 
-/// catch and send 404error to error handler
+
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
+
 /// error handlers
 
 // development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
@@ -76,7 +75,6 @@ if (app.get('env') === 'development') {
 }
 
 // production error handler
-// no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
